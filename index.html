@@ -5,11 +5,13 @@
         <meta charset="UTF-8">
         <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
         <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+        <link rel="stylesheet" href="crstyle.css">
 
     </head>
     <header>
         <main class="container">
-        <h1>Campus Hub <a href="">
+        <h1 class="ct">Campus Hub 
+        <a href=""> <!--the link of main page to be added-->
             <img src="account photo.png"width="30px" height="30px"> 
         </a></h1>
         
@@ -26,15 +28,17 @@
     </header>
     <hr>
 
-    <br>
     <body>
         <main class="container">
         <section>
-        <h5><a href="first prgram.html" >Back to the main menu</a></h5>
+        <h5><a href="">Back to the main menu</a></h5>
+        <br>
+
         <h2>Course Reviews</h2>
+        <p class="intro">Display students reviews about courses, and share your own easily!</p>
         <input type="text" placeholder="Search by course, ex. ITCY354, etc..." size="60"> 
         <input type="button" value="Filter" >
-        <select name="sort">
+        <select class="sorting" name="sort">
             <option value="1">Old To New</option>
             <option value="2">New To Old</option>
         </select>
@@ -132,4 +136,3 @@
     </main>
     </footer>
 </html>
-
