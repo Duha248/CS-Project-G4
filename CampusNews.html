@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Campus News</title>
+        <meta charset="UTF-8">
         <link rel = "stylesheet" href="styles.css">
         <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
     </head>
@@ -11,7 +12,7 @@
             <main class="container">
             <h1> Campus Hub </h1>
             <nav>
-                <a href="">Event Calander</a>
+                <a href="">Event Calandar</a>
                 <a href="">Study Group Finder</a>
                 <a href="">Course Reviews</a>
                 <a href="">Course Notes</a>
@@ -35,8 +36,68 @@
                     <option>Oldest to newest</option>
                 </select>
             </section>
-            <button class="add-button">Add News</button>
 
+            <section>
+                <div class="news">
+                    <h2>Campus News</h2>
+                    <details>
+                        <summary>
+                        <p><strong>News Title:</strong> UOB Introduces New Cybersecurity Program</p>
+                        <p><strong>College:</strong> College of Information Technology</p>
+                        <p><strong>Year:</strong>2024</p>
+                        </summary>
+                        <p><strong>Author:</strong> College of Information Technology</p>
+                        <p><strong>News Description:</strong> University of Bahrain has launched a new Cybersecurity program to equip students with essential skills in ethical hacking, 
+                            data protection, and network security. The program includes hands-on training and collaboration with leading tech firms to enhance cybersecurity awareness in Bahrain.
+                        </p>
+                    </details>
+                    <br>
+                    <details>
+                        <summary>
+                        <p><strong>News Title:</strong> University of Bahrain Launches New AI Research Center</p>
+                        <p><strong>College:</strong> College of Information Technology</p>
+                        <p><strong>Year:</strong>2024</p>
+                        </summary>
+                        <p><strong>Author:</strong> Dr. Ahmed Al-Khalifa</p>
+                        <p><strong>News Description:</strong> The University of Bahrain has opened its first AI Research Center to promote innovation in artificial intelligence. 
+                            The center will support research in education, healthcare, and business, providing students and faculty with advanced resources. 
+                            The launch event featured university leaders and industry experts discussing AI's role in Bahrain's digital future. </p>
+                    </details>
+                    <br>
+                    <details>
+                        <summary>
+                        <p><strong>News Title:</strong> UOB Hosts Legal Awareness Seminar on Cyber Law</p>
+                        <p><strong>College:</strong> College of Law</p>
+                        <p><strong>Year:</strong>2023</p>
+                        </summary>
+                        <p><strong>Author:</strong> College of Law</p>
+                        <p><strong>News Description:</strong> The University of Bahrain organized a seminar on Cyber Law, discussing digital rights, online privacy, and cybercrime regulations. 
+                            Legal experts and faculty members guided students on the latest developments in Bahrain's legal framework for cybersecurity and digital transactions.
+                        </p>
+                    </details>
+                </div>
+            </section>
+
+            <h4>Add New News:</h4>
+            <form>
+                <label for="title">News Title:</label>
+                <input type="text" id="title" placeholder="News Title" required>
+                <br>
+                <label for="college">College:</label>
+                <input type="text" id="college" placeholder="College" required>
+                <br>
+                <label for="year">Year:</label>
+                <input type="number" id="year" placeholder="Year of writing this news" required>
+                <br>
+                <label for="author">Author:</label>
+                <input type="author" id="author" placeholder="Author" required>
+                <br>
+                <label for="description">News Description:</label>
+                <textarea id="description" placeholder="News Description" required></textarea>
+                <br>
+                <button type="submit">Add News</button>
+                <br>
+            </form>
             <div class="pagination">
                 <a href="#">&laquo; Prev</a>
                 <a href="#">1</a>
