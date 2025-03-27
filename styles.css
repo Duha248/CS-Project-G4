@@ -1,0 +1,182 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E8DED1; 
+    margin: 0;
+    padding: 0;
+    color: #A0816C; 
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color: #C8AD7E; 
+    color: #FFFFFF; 
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+nav a {
+    color: #FFFFFF; 
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Search and Filter */
+.search-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    justify-content: center;
+}
+
+.search-filter input, .search-filter select, .search-filter button {
+    padding: 8px;
+    border: 1px solid #BFAB8C; 
+    border-radius: 5px;
+}
+
+.search-filter button {
+    background-color: #BFAB8C; 
+    color: #FFFFFF; 
+    border: none;
+    cursor: pointer;
+}
+
+.search-filter button:hover {
+    background-color: #C8AD7E; 
+    color: #FFFFFF; 
+}
+
+/* News Section */
+.news {
+    background-color: #E8DED1; 
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.news article {
+    background: #FFFFFF;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.news h2 {
+    text-align: center;
+    color: #A0816C; 
+}
+
+/* Form Styling */
+form {
+    background: #E8DED1; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input, form textarea, form button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #BFAB8C; 
+}
+
+form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+form button {
+    background-color: #A0816C; 
+    color: #FFFFFF; 
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #C8AD7E; 
+}
+
+/* Comments Section */
+.comments {
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #BFAB8C;
+}
+
+.comments textarea {
+    width: 100%;
+    height: 80px;
+    border-radius: 5px;
+    border: 1px solid #BFAB8C;
+}
+
+.comments button {
+    background-color: #A0816C;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Pagination */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 8px 12px;
+    margin: 5px;
+    text-decoration: none;
+    background: #A0816C; 
+    color: #FFFFFF; 
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.pagination a:hover {
+    background: #C8AD7E; 
+}
+
+/* Footer */
+footer {
+    background-color: #C8AD7E; 
+    color: #FFFFFF; 
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer a img {
+    margin: 5px;
+    border-radius: 5px;
+}
