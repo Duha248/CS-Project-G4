@@ -1,19 +1,29 @@
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #F7EFE7; 
-    color: #1B3A4B; 
+    background-color: #E8DED1; 
     margin: 0;
     padding: 0;
+    color: #A0816C; 
 }
 
-/* Header Styles */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Header */
 header {
-    background-color: #2E5A74; 
-    color: white; 
-    padding: 15px 0;
+    background-color: #C8AD7E; 
+    color: #FFFFFF; 
+    padding: 10px 0;
     text-align: center;
-    border-bottom: 2px solid #D1B18B; 
+}
+
+header h1 {
+    color: white !important;
+    font-weight: bold;
 }
 
 nav {
@@ -24,7 +34,7 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: #FFFFFF; 
     text-decoration: none;
     font-weight: bold;
 }
@@ -33,9 +43,24 @@ nav a:hover {
     text-decoration: underline;
 }
 
+/* Back to Main Menu */
+.back-to-main {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #A0816C;
+    text-decoration: none;
+}
+
+.back-to-main:hover {
+    text-decoration: underline;
+}
+
 /* Search and Filter */
 .search-filter {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     margin: 20px 0;
     justify-content: center;
@@ -43,94 +68,127 @@ nav a:hover {
 
 .search-filter input, .search-filter select, .search-filter button {
     padding: 8px;
-    font-size: 16px;
+    border: 1px solid #BFAB8C; 
     border-radius: 5px;
-    border: 1px solid #D1B18B; 
+}
+
+.search-filter button {
+    background-color: #BFAB8C; 
+    color: #FFFFFF; 
+    border: none;
+    cursor: pointer;
+}
+
+.search-filter button:hover {
+    background-color: #C8AD7E; 
+    color: #FFFFFF; 
 }
 
 /* News Section */
 .news {
-    background-color: white;
-    padding: 20px;
+    background-color: white; 
+    padding: 15px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.news article {
+    background: #E8DED1;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+details {
+    background: #E8DED1;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .news h2 {
     text-align: center;
-    color: #D1B18B; 
-}
-
-.news details {
-    background: #D1B18B; 
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.news details summary {
-    cursor: pointer;
-    font-weight: bold;
-    color: #2E5A74; 
-}
-
-/* Comment Section */
-.news h4 {
-    color: #1B3A4B; 
-    margin-top: 15px;
-    font-size: 18px;
-}
-
-.news textarea {
-    width: 100%;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #D1B18B; 
-    resize: vertical;
-    min-height: 80px;
-}
-
-.news button {
-    background-color: #2E5A74; 
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 8px 12px;
-    border-radius: 5px;
-    margin-top: 5px;
-}
-
-.news button:hover {
-    background-color: #1B3A4B; 
+    color: #A0816C; 
 }
 
 /* Form Styling */
 form {
-    background-color: white;
+    background: white; 
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-form input, form button, form textarea {
+form label {
+    font-weight: bold;
+}
+
+form input, form textarea, form button {
     display: block;
     width: 100%;
-    margin-bottom: 10px;
     padding: 8px;
     border-radius: 5px;
-    border: 1px solid #D1B18B; 
+    border: 1px solid #BFAB8C; 
 }
 
-button {
-    background-color: #2E5A74; 
-    color: white;
+form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+form button {
+    background-color: #A0816C; 
+    color: #FFFFFF; 
     border: none;
     cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
 }
 
-button:hover {
-    background-color: #1B3A4B; 
+form button:hover {
+    background-color: #C8AD7E; 
+}
+
+/* Form Buttons */
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.cancel-btn {
+    background-color: #BFAB8C; 
+}
+
+.cancel-btn:hover {
+    background-color: #C8AD7E;
+}
+
+/* Comments Section */
+.comments {
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #BFAB8C;
+}
+
+.comments textarea {
+    width: 100%;
+    height: 80px;
+    border-radius: 5px;
+    border: 1px solid #BFAB8C;
+}
+
+.comments button {
+    background-color: #A0816C;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    margin-top: 10px;
+    cursor: pointer;
 }
 
 /* Pagination */
@@ -141,31 +199,32 @@ button:hover {
 
 .pagination a {
     padding: 8px 12px;
-    background-color: #2E5A74; 
-    color: white;
-    margin: 2px;
+    margin: 5px;
     text-decoration: none;
+    background: #C8AD7E; 
+    color: #FFFFFF; 
     border-radius: 5px;
+    display: inline-block;
 }
 
 .pagination a:hover {
-    background-color: #1B3A4B; 
+    background: #A0816C; 
 }
 
 /* Footer */
 footer {
-    background-color: #1B3A4B; 
-    color: white;
+    background-color: #C8AD7E; 
+    color: #FFFFFF; 
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0;
     margin-top: 20px;
-    border-top: 2px solid #D1B18B; 
 }
 
 footer h5 {
-    color: #F7EFE7 !important;
+    color: white !important;
     font-weight: bold;
 }
+
 
 footer a img {
     margin: 5px;
