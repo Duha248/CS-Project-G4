@@ -43,20 +43,6 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Back to Main Menu */
-.back-to-main {
-    display: block;
-    text-align: center;
-    margin-top: 10px;
-    font-weight: bold;
-    color: #A0816C;
-    text-decoration: none;
-}
-
-.back-to-main:hover {
-    text-decoration: underline;
-}
-
 /* Search and Filter */
 .search-filter {
     display: flex;
@@ -90,13 +76,6 @@ nav a:hover {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.news article {
-    background: #E8DED1;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 15px;
 }
 
 details {
@@ -158,14 +137,6 @@ form button:hover {
     display: flex;
     gap: 10px;
     justify-content: flex-start;
-}
-
-.cancel-btn {
-    background-color: #BFAB8C; 
-}
-
-.cancel-btn:hover {
-    background-color: #C8AD7E;
 }
 
 /* Comments Section */
