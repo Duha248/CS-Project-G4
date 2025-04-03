@@ -3,16 +3,16 @@
     <head>
         <title>Study Group Finder</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-        <link rel="stylesheet" href="crstyle.css">
+        <link rel="stylesheet" href="style.css">
 
     </head>
 <body>
     
-</html>
 <header>
     <main class="container">
-    <h1 >Campus Hub 
+    <h1 id="title">Campus Hub 
     <a href=""> <!--the link of main page to be added-->
         <img src="assets\profile.jpeg"width="30px" height="30px"> 
     </a></h1>
@@ -29,7 +29,163 @@
     </main>
 </header>
 <hr>
+<main class="container">
+    <a href=""><strong> Back to the main menu</strong></a>
+    <h1>Study Group Finder</h1>
+    <h4>Easily find and join study groups for all your courses.</h4>
 
+    <form id="searchForm">
+
+        <!-- Search Option for Course Code -->
+        <div id="course-code-option" class="input-group hidden">
+            <label for="courseCode">Course Code</label>
+            <input type="text" id="courseCode" name="courseCode" placeholder="Enter Course Code" required>
+        </div>
+
+        <!-- Filter by College -->
+        <div id="college-option" class="input-group hidden">
+            <label for="college">Filter by College</label>
+            <select id="college" name="college" required>
+                <option value="">Select College</option>
+                <option value="information-technology">College of Information Technology</option>
+                <option value="arts">College of Arts</option>
+                <option value="law">College of Law</option>
+                <option value="engineering">College of Engineering</option>
+                <option value="physical-education">College of Physical Education</option>
+                <option value="health-sport-sciences">College of Health and Sport Sciences</option>
+                <option value="languages-institute">Languages Institute</option>
+                <option value="applied-studies">College of Applied Studies</option>
+                <option value="science">College of Science</option>
+                <option value="business-administration">College of Business Administration</option>
+            </select>
+        </div>
+
+        <!-- Sort by Course Code -->
+        <div id="sort-option" class="input-group">
+            <label for="sortSelect">Sort By Course Code</label>
+            <select id="sortSelect" name="sortSelect">
+                <option value="">Default</option>
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </select>
+        </div>
+
+
+        <!-- Submit Button -->
+        <div class="input-group">
+            <button class="btn" type="submit">Find Study Groups</button>
+        </div>
+    </form>
+
+    <hr>
+
+    <section>
+        <div class="results">
+            <h3>Available Groups:</h3>
+            <br>
+
+        <details>
+            <summary>
+                <p><strong>Course: ITSE305</strong></p> 
+                <p><strong>Section: 01</strong></p> 
+            </summary>
+            <p><strong>Software Engineering Project</strong></p>
+            <p><strong>College:</strong> Information Technology</p>
+            <p><strong>Description:</strong> Join a team focused on creating real-world software solutions and gain hands-on experience with collaborative development. Work on impactful projects that can shape your career!</p>
+            <a href=""><button id="join-btn" class="btn">Join</button></a>
+        </details>
+
+        <br>
+
+        <details>
+            <summary>
+                <p><strong>Course: ITCS347</strong></p> 
+                <p><strong>Section: 01</strong></p> 
+            </summary>
+            <p><strong>Analysis and Algorithms</strong></p>
+            <p><strong>College:</strong> Information Technology</p>
+            <p><strong>Description:</strong> Master the art of problem-solving with fellow students. Explore algorithms, data structures, and become a critical thinker in computer science!</p>
+            <a href=""><button id="join-btn" class="btn">Join</button></a>
+        </details>
+
+        <br>
+
+        <details>
+            <summary>
+                <p><strong>Course: PHYCS101</strong></p>
+                <p><strong>Section: 01</strong></p> 
+            </summary>
+            <p><strong>General Physics I</strong></p>
+            <p><strong>College:</strong> Science</p>
+            <p><strong>Description:</strong> A great group for those passionate about the fundamental forces of nature. Work with others to understand physics concepts and tackle complex problems!</p>
+            <a href=""><button id="join-btn" class="btn">Join</button></a>
+        </details>
+    </div>
+
+        </div>
+        <div class="pagination_section">
+            <a href=""><<</a>
+            <a href="">1</a>
+            <a href="">2</a>
+            <a href="">3</a>
+            <a href="">4</a>
+            <a href="">5</a>
+            <a href="">>></a>
+        </div>
+        </section>
+
+
+    <!-- Create New Group Form -->
+    <h2>Create a New Study Group</h2>
+    <form id="newGroupForm">
+        <!-- Course Code -->
+        <div class="input-group">
+            <label for="newCourseCode">Course Code</label>
+            <input type="text" id="newCourseCode" name="newCourseCode" placeholder="Enter Course Code" required>
+        </div>
+
+        <!-- Group Name -->
+        <div class="input-group">
+            <label for="groupName">Group Name</label>
+            <input type="text" id="groupName" name="groupName" placeholder="Enter Group Name" required>
+        </div>
+
+        <!-- Group Description -->
+        <div class="input-group">
+            <label for="groupDescription">Group Description (Optional)</label>
+            <textarea id="groupDescription" name="groupDescription" rows="4" placeholder="Enter a brief description of the group"></textarea>
+        </div>
+
+        <!-- Group Link -->
+        <div class="input-group">
+            <label for="groupLink">Group Link</label>
+            <input type="url" id="groupLink" name="groupLink" placeholder="Enter the URL to your group" required>
+        </div>
+
+        <!-- College -->
+        <div class="input-group">
+            <label for="newCollege">College</label>
+            <select id="newCollege" name="newCollege" required>
+                <option value="">Select College</option>
+                <option value="information-technology">College of Information Technology</option>
+                <option value="arts">College of Arts</option>
+                <option value="law">College of Law</option>
+                <option value="engineering">College of Engineering</option>
+                <option value="physical-education">College of Physical Education</option>
+                <option value="health-sport-sciences">College of Health and Sport Sciences</option>
+                <option value="languages-institute">Languages Institute</option>
+                <option value="applied-studies">College of Applied Studies</option>
+                <option value="science">College of Science</option>
+                <option value="business-administration">College of Business Administration</option>
+            </select>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="input-group">
+            <button class="btn" type="submit">Create Study Group</button>
+        </div>
+    </form>
+</main>
 <!--Footer code-->
 <hr>
 <footer>

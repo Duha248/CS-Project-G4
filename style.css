@@ -1,0 +1,189 @@
+#title {
+    color: white;
+}
+
+h1 {
+    color: black;
+}
+
+body {
+    background-color: #E8DED1;
+    font-family: Arial, sans-serif;
+    color: #A0816C;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px;
+}
+
+/* Header Styles */
+header {
+    background-color: #C8AD7E;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+header h1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Button Styles */
+.btn {
+    background-color: #C8AD7E;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #A0816C;
+    transform: scale(1.05);
+}
+
+/* Form Styles */
+form {
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #BFAB8C;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+/* Results Section */
+.results {
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+details {
+    border: 1px solid #A0816C;
+    background-color: #E8DED1;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+details summary {
+    font-weight: bold;
+    cursor: pointer;
+    color: #C8AD7E;
+}
+
+/* Pagination Section */
+.pagination_section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination_section a {
+    background: #C8AD7E;
+    color: #FFFFFF;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.pagination_section a:hover {
+    background: #A0816C;
+}
+
+/* Footer Section */
+footer {
+    background-color: #C8AD7E;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer h5 {
+    color: white;
+    font-weight: bold;
+}
+
+footer a img {
+    margin: 5px;
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .pagination_section {
+        font-size: 14px;
+    }
+
+    .input-group input, .input-group select, .input-group textarea {
+        padding: 8px;
+    }
+}
