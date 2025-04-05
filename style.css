@@ -1,11 +1,4 @@
-#title {
-    color: white;
-}
-
-h1 {
-    color: black;
-}
-
+/* General Styles */
 body {
     background-color: #E8DED1;
     font-family: Arial, sans-serif;
@@ -53,21 +46,12 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Button Styles */
-.btn {
-    background-color: #C8AD7E;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    color: white;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #A0816C;
-    transform: scale(1.05);
+/* Breadcrumb Navigation */
+.module-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
 }
 
 /* Form Styles */
@@ -100,7 +84,35 @@ input, select, textarea, button {
 textarea {
     resize: vertical;
 }
+/* Button Styles */
+.btn {
+    background-color: #C8AD7E;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
+.btn:hover {
+    background-color: #A0816C;
+    transform: scale(1.05);
+}
+.input-group input[type="submit"] {
+    height: 45px; 
+    padding: 10px 15px;
+
+}
+
+#delete-btn, #cncl-btn {
+    background-color: #d45e6a;
+  }
+  
+#delete-btn:hover, #cncl-btn:hover {
+    background-color: #bb2d3b;
+  }
 
 /* Results Section */
 .results {
@@ -124,20 +136,44 @@ details summary {
     color: #C8AD7E;
 }
 
+details p {
+    margin: 5px 0;
+}
+
+/* Comments Section */
+.comments-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .comment {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+  
+  .comment-form textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+
 /* Pagination Section */
 .pagination_section {
     text-align: center;
     margin-top: 20px;
 }
-
 .pagination_section a {
-    background: #C8AD7E;
-    color: #FFFFFF;
+    background-color: #C8AD7E;
+    color: white;
     padding: 8px 12px;
     border-radius: 5px;
     margin: 5px;
-    text-decoration: none;
-    display: inline-block;
 }
 
 .pagination_section a:hover {
@@ -158,9 +194,10 @@ footer h5 {
     font-weight: bold;
 }
 
+/* Image Styling for Footer Social Icons */
 footer a img {
-    margin: 5px;
-    border-radius: 5px;
+    width: 30px;
+    height: 30px;
 }
 
 /* Responsive Design */
@@ -186,4 +223,16 @@ footer a img {
     .input-group input, .input-group select, .input-group textarea {
         padding: 8px;
     }
+
+    .results {
+        padding: 15px;
+    }
 }
+
+.controllers{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  
+  gap: 20px; 
+  padding: 15px;
+}
+
