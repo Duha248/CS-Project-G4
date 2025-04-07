@@ -2,15 +2,15 @@
 
 body {
     background-color: #E8DED1;
-    font-family: Arial; /* sans-serif;*/
-    color: #FFFFFF;
+    font-family: Arial ,sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 /* Container Styling */
 .container {
-    width: 90%;
-    max-width: 1200px;
     margin: auto;
+    max-width: 1000px;
     padding: 20px;
 }
 
@@ -25,39 +25,21 @@ header {
 header h1 {
     color: white;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 10px;
+    gap: 0 10px;
 }
 
-header img {
-    border-radius: 50%; /* Circular profile picture */
-}
-
-/* Navigation Menu */
-nav {
-    text-align: center;
-    margin-top: 10px;
-}
 
 nav a {
     text-decoration: none;
     color: white;
-    font-size: 16px;
+    font-size: 20px;
     margin: 0 10px;
     font-weight: bold;
 }
-
-/* Section Styling */
-section {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-h3 {
-    color: black;
+nav a:hover {
+    text-decoration: underline;
 }
 
 hr {
@@ -67,13 +49,6 @@ hr {
     margin: 20px 0;
 }
 
-.brief {
-    background: #f1ece5;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
 /* Club Description Styling */
 details {
     background: #E8DED1;
@@ -81,7 +56,7 @@ details {
     border-radius: 5px;
 }
 
-details summary {
+summary {
     font-weight: bold;
     cursor: pointer;
 }
@@ -92,15 +67,12 @@ form {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
 }
 
-input[type="text"], input[type="date"], textarea, select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
+input[type="text"], input[type="date"],textarea, select {
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #BFAB8C;
     border-radius: 5px;
 }
 
@@ -124,12 +96,47 @@ input[type="button"]:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer Styling */
-footer {
+.paginationing {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.paginationing a {
+    padding: 8px 12px;
+    margin: 5px;
+    text-decoration: none;
     background: #C8AD7E;
     color: white;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.paginationing a:hover {
+    background: #A0816C;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #C8AD7E;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #A0816C;
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: #C8AD7E;
+    color: white;
     text-align: center;
-    padding: 20px 0;
+    margin-top: 20px;
+    padding: 10px 0;
 }
 
 footer h5{

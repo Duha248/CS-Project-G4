@@ -6,16 +6,16 @@
     <title>Club Activities</title>
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
     <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-    <link rel = "stylesheet" href = "castyle.css">
+    <link rel = "stylesheet" href = "style.css">
 </head>
 
 <body>
     <header>
         <main class = "container">
             <h1>Campus Hub<a href = "">
-                <img src = "account photo.png" width = "30px" height = "30px"> 
+                <img src = "log.png" width = "90px" height = "60px" >
             </a></h1>
-            
+        
             <nav>
                 <a href = "">Calender</a> |
                 <a href = "">Group Finder</a> |
@@ -43,7 +43,7 @@
         <!-- Introductory display of the clubs: -->
         <section>
             <h3>Get to know our clubs!</h3>
-            <div class = "brief">
+            <div class = "results">
                 <details>
                     <summary>Music Club</summary>
                     <p>The Music club is all about giving the students who have a passion 
@@ -106,12 +106,34 @@
                         Competition Training
                     </summary>
                     <strong>Date: </strong>
-                    <p>2024-02-20</p>
+                    <p>2025-02-20</p>
                     <strong>Location: </strong>
                     <p>Room 101</p>
                     <strong>Description: </strong>
                     <p>Competition training and preperations for the upcoming debate competition.</p>
                 </details><br>
+                <details>
+                    <summary>
+                        Sports Club 
+                        <br><br>
+                        Basketball Match
+                    </summary>
+                    <strong>Date: </strong>
+                    <p>2025-09-28</p>
+                    <strong>Location: </strong>
+                    <p>Room 123</p>
+                    <strong>Description: </strong>
+                <p>Join us for a friendly basketball match against the opposing team.</p>
+                </details><br>
+            </div>
+            <div class="paginationing">
+                <a href=""><<</a>
+                <a href="">1</a>
+                <a href="">2</a>
+                <a href="">3</a>
+                <a href="">4</a>
+                <a href="">5</a>
+                <a href="">>></a>
             </div>
 
         </section>
@@ -120,12 +142,14 @@
         <section>
             <h3>Add Activity</h3>
             <form>
-                <label for = "club" >Club: </label>
-                <input type="radio" id="music" name="club" required>Music Club
-                <input type="radio" id="debate" name="club">Debate Club
-                <input type="radio" id="chess" name="club">Chess Club
-                <input type="radio" id="sports" name="club">Sports Club
-                <br><br>
+                <label for = "club" ><Strong>CLUB:</Strong> 
+                    <br><br>
+                    <input type="radio" id="music" name="club" required>Music Club
+                    <input type="radio" id="debate" name="club">Debate Club
+                    <input type="radio" id="chess" name="club">Chess Club
+                    <input type="radio" id="sports" name="club">Sports Club
+                    <br><br>
+                </label>
 
                 <label for="title">Activity Title:</label>
                 <input type="text" id="title" required>
