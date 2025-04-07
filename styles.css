@@ -24,6 +24,7 @@ header {
 header h1 {
     color: white !important;
     font-weight: bold;
+    font-family: Arial, sans-serif;
 }
 
 nav {
@@ -139,29 +140,6 @@ form button:hover {
     justify-content: flex-start;
 }
 
-/* Comments Section */
-.comments {
-    margin-top: 20px;
-    padding: 10px;
-    border-top: 1px solid #BFAB8C;
-}
-
-.comments textarea {
-    width: 100%;
-    height: 80px;
-    border-radius: 5px;
-    border: 1px solid #BFAB8C;
-}
-
-.comments button {
-    background-color: #A0816C;
-    color: white;
-    border: none;
-    padding: 8px 10px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
 /* Pagination */
 .pagination {
     text-align: center;
@@ -195,7 +173,6 @@ footer h5 {
     color: white !important;
     font-weight: bold;
 }
-
 
 footer a img {
     margin: 5px;
