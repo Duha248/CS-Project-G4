@@ -9,6 +9,7 @@
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
     <link rel="stylesheet" href="style.css" />
+
   </head>
   <body>
     <header>
@@ -74,13 +75,17 @@
           </select>
         </div>
 
-        <!-- Sort by Course Code -->
+        <!-- Sort Groups By -->
         <div id="sort-option" class="input-group">
-          <label for="sortSelect">Sort By Course Code</label>
+          <label for="sortSelect">Sort Groups By</label>
           <select id="sortSelect" name="sortSelect">
             <option value="">Default</option>
-            <option value="asc">Ascending</option>
-            <option value="desc">Descending</option>
+            <option value="code_asc">Course Code (A → Z)</option>
+            <option value="code_desc">Course Code (Z → A)</option>
+            <option value="date_new">Newest First</option>
+            <option value="date_old">Oldest First</option>
+            <option value="members_asc">Fewest Members</option>
+            <option value="members_desc">Most Members</option>
           </select>
         </div>
 
@@ -89,8 +94,8 @@
           <input class="btn" type="submit" value="Find Study Groups" />
         </div>
       </form>
-      <article>
-        <p>Can't find the right group? Why not create one?</p>
+      <article id="NotFound">
+        <p><strong>Can't find the right group? Why not create one?</strong></p>
         <a href="#createForm">
           <button id="create-btn" class="btn">Create a New Group</button>
         </a>
@@ -101,152 +106,206 @@
         <div class="results">
           <h3>Available Groups:</h3>
           <article class="group-listing">
-          <details>
-            <summary>
-              <p><strong>Course: ITSE305</strong></p>
-              <p><strong>Section: 01</strong></p>
-            </summary>
-            <p><strong>Software Engineering Project</strong></p>
-            <p><strong>College:</strong> Information Technology</p>
-            <p>
-              <strong>Description:</strong> Join a team focused on creating
-              real-world software solutions and gain hands-on experience with
-              collaborative development. Work on impactful projects that can
-              shape your career!
-            </p>
-            <div class="controllers">
-              <a href=""><button id="Edit-btn" class="btn">Edit</button></a>
-              <a href=""><button id="join-btn" class="btn">Join</button></a>
-              <a href=""><button id="delete-btn" class="btn">Delete</button></a>
-            </div>
-            <!-- Comments Section for Group 1 -->
-            <div class="comments-section">
-              <h3>Discussion</h3>
-              <article class="comment">
-                <strong>Zainab Ahmed</strong> • <small>2 hours ago</small>
-                <p>
-                  Sounds Amazing! I'm really excited to dive into the world of software development. Can't wait to collaborate with all of you!
-                </p>
-              </article>
+            <details>
+              <summary>
+                <p><strong>Course: ITSE305</strong></p>
+                <p><strong>Software Engineering Project</strong></p>
+              </summary>
+              <p><strong>College:</strong> Information Technology</p>
+              <p>
+                <strong>Description:</strong> Join a team focused on creating
+                real-world software solutions and gain hands-on experience with
+                collaborative development. Work on impactful projects that can
+                shape your career!
+              </p>
+              <p><strong>Created:</strong> April 15, 2025</p>
+              <div class="members-section">
+                <p><strong>Current Members (3):</strong></p>
+                <div class="member-list">
+                  <span class="member-badge">Zainab Ahmed</span>
+                  <span class="member-badge">Fatema Sayed</span>
+                  <span class="member-badge">Ali Reza</span>
+                </div>
+              </div>
+              <div class="controllers">
+                <a href=""><button id="Edit-btn" class="btn btn-secondary">Edit</button></a>
+                <a href=""><button id="join-btn" class="btn">Join</button></a>
+                <a href=""
+                  ><button id="delete-btn" class="btn btn-danger">Delete</button></a
+                >
+              </div>
+              <!-- Comments Section for Group 1 -->
+              <div class="comments-section">
+                <h3>Discussion</h3>
+                <article class="comment">
+                  <strong>Zainab Ahmed</strong> • <small>2 hours ago</small>
+                  <p>
+                    Sounds Amazing! I'm really excited to dive into the world of
+                    software development. Can't wait to collaborate with all of
+                    you!
+                  </p>
+                </article>
 
-              <article class="comment">
-                <strong>Fatema Sayed</strong> • <small>30 minutes ago</small>
-                <p>Totally! Get ready to work on some cool projects. Looking forward to the teamwork!</p>
-              </article>
-              <article class="comment">
-                <strong>Ali Raza</strong> • <small>15 minutes ago</small>
-                <p>I'm new to this, but really excited to learn and contribute. Let's make this project a success together!</p>
-              </article>
-              <form>
-                <label for="newComment">Share your thoughts</label>
-                <textarea
-                  id="newComment"
-                  rows="3"
-                  placeholder="What would you like to discuss?"
-                ></textarea>
-                <button type="submit" class="btn">Post Comment</button>
-              </form>
-            </div>
-          </details>
+                <article class="comment">
+                  <strong>Fatema Sayed</strong> • <small>30 minutes ago</small>
+                  <p>
+                    Totally! Get ready to work on some cool projects. Looking
+                    forward to the teamwork!
+                  </p>
+                </article>
+                <article class="comment">
+                  <strong>Ali Reza</strong> • <small>15 minutes ago</small>
+                  <p>
+                    I'm new to this, but really excited to learn and contribute.
+                    Let's make this project a success together!
+                  </p>
+                </article>
+                <form>
+                  <label for="newComment">Share your thoughts</label>
+                  <textarea
+                    id="newComment"
+                    rows="3"
+                    placeholder="What would you like to discuss?"
+                  ></textarea>
+                  <button type="submit" class="btn">Post Comment</button>
+                </form>
+              </div>
+            </details>
           </article>
 
           <br />
           <article class="group-listing">
+            <details>
+              <summary>
+                <p><strong>Course: ITCS347</strong></p>
+                <p><strong>Analysis and Algorithms</strong></p>
+              </summary>
+              <p><strong>College:</strong> Information Technology</p>
+              <p>
+                <strong>Description:</strong> Master the art of problem-solving
+                with fellow students. Explore algorithms, data structures, and
+                become a critical thinker in computer science!
+              </p>
+              <p><strong>Created:</strong> March 28, 2025</p>
+              <div class="members-section">
+                <p><strong>Current Members (3):</strong></p>
+                <div class="member-list">
+                  <span class="member-badge">Maryam Mansoor</span>
+                  <span class="member-badge">Zainab Sayed Ali</span>
+                  <span class="member-badge">Sayed Hadi Hasan</span>
+                  <span class="member-badge">Mohammed Jawad</span>
 
-          <details>
-            <summary>
-              <p><strong>Course: ITCS347</strong></p>
-              <p><strong>Section: 01</strong></p>
-            </summary>
-            <p><strong>Analysis and Algorithms</strong></p>
-            <p><strong>College:</strong> Information Technology</p>
-            <p>
-              <strong>Description:</strong> Master the art of problem-solving
-              with fellow students. Explore algorithms, data structures, and
-              become a critical thinker in computer science!
-            </p>
-            <div class="controllers">
-              <a href=""><button id="Edit-btn" class="btn">Edit</button></a>
-              <a href=""><button id="join-btn" class="btn">Join</button></a>
-              <a href=""><button id="delete-btn" class="btn">Delete</button></a>
-            </div>
-            <!-- Comments Section for Group 2 -->
-            <div class="comments-section">
-              <h3>Comments</h3>
-              <article class="comment">
-                <strong>Maryam Mansoor</strong> • <small>3 hours ago</small>
-                <p>If you're interested in algorithms, you definitely want to join us! We're diving deep into problem-solving strategies, and it's going to be a fantastic experience.</p>
-              </article>
-              <article class="comment">
-                <strong>Zahra Moh'd</strong> • <small>1 hour ago</small>
-                <p>Agreed! Algorithms are essential, and this group will help us learn them in a collaborative environment. I'm ready to get started!</p>
-              </article>
-              <article class="comment">
-                <strong>Mohammed Mansoor</strong> • <small>45 minutes ago</small>
-                <p>Algorithm challenges are tough but rewarding. Excited to see what we'll work on together in this group!</p>
-              </article>
+                </div>
+              </div>
+              <div class="controllers">
+                <a href=""><button id="Edit-btn" class="btn btn-secondary">Edit</button></a>
+                <a href=""><button id="join-btn" class="btn">Join</button></a>
+                <a href=""
+                  ><button id="delete-btn" class="btn btn-danger">Delete</button></a
+                >
+              </div>
+              <!-- Comments Section for Group 2 -->
+              <div class="comments-section">
+                <h3>Discussion</h3>
+                <article class="comment">
+                  <strong>Maryam Mansoor</strong> • <small>3 hours ago</small>
+                  <p>
+                    If you're interested in algorithms, you definitely want to
+                    join us! We're diving deep into problem-solving strategies,
+                    and it's going to be a fantastic experience.
+                  </p>
+                </article>
+                <article class="comment">
+                  <strong>Zainab Sayed Ali</strong> • <small>1 hour ago</small>
+                  <p>
+                    Agreed! Algorithms are essential, and this group will help
+                    us learn them in a collaborative environment. I'm ready to
+                    get started!
+                  </p>
+                </article>
+                <article class="comment">
+                  <strong>Mohammed Jawad</strong> •
+                  <small>45 minutes ago</small>
+                  <p>
+                    Algorithm challenges are tough but rewarding. Excited to see
+                    what we'll work on together in this group!
+                  </p>
+                </article>
 
-              <form>
-                <label for="newComment">Share your thoughts</label>
-                <textarea
-                  id="newComment"
-                  rows="3"
-                  placeholder="What would you like to discuss?"
-                ></textarea>
-                <button type="submit" class="btn">Post Comment</button>
-              </form>
-            </div>
-          </details>
+                <form>
+                  <label for="newComment">Share your thoughts</label>
+                  <textarea
+                    id="newComment"
+                    rows="3"
+                    placeholder="What would you like to discuss?"
+                  ></textarea>
+                  <button type="submit" class="btn">Post Comment</button>
+                </form>
+              </div>
+            </details>
           </article>
           <br />
           <article class="group-listing">
-          <details>
-            <summary>
-              <p><strong>Course: PHYCS101</strong></p>
-              <p><strong>Section: 01</strong></p>
-            </summary>
-            <p><strong>General Physics I</strong></p>
-            <p><strong>College:</strong> Science</p>
-            <p>
-              <strong>Description:</strong> A great group for those passionate
-              about the fundamental forces of nature. Work with others to
-              understand physics concepts and tackle complex problems!
-            </p>
-            <div class="controllers">
-              <a href=""><button id="Edit-btn" class="btn">Edit</button></a>
-              <a href=""><button id="join-btn" class="btn">Join</button></a>
-              <a href=""><button id="delete-btn" class="btn">Delete</button></a>
-            </div>
+            <details>
+              <summary>
+                <p><strong>Course: PHYCS101</strong></p>
+                <p><strong>General Physics I</strong></p>
+              </summary>
+              <p><strong>General Physics I</strong></p>
+              <p><strong>College:</strong> Science</p>
+              <p>
+                <strong>Description:</strong> A great group for those passionate
+                about the fundamental forces of nature. Work with others to
+                understand physics concepts and tackle complex problems!
+              </p>
+              <p><strong>Created:</strong> February 10, 2025</p>
+              <div class="members-section">
+                <p><strong>Current Members (5):</strong></p>
+                <div class="member-list">
+                  <span class="member-badge">Ahmed Ali</span>
+                  <span class="member-badge">Fatima Mohammed</span>
+                  <span class="member-badge">Sara Sulail</span>
+                  <span class="member-badge">Zahra Mahdi</span>
+                  <span class="member-badge">Layla Mahmoud</span>
+                </div>
+              </div>
+              <div class="controllers">
+                <a href=""><button id="Edit-btn" class="btn btn-secondary">Edit</button></a>
+                <a href=""><button id="join-btn" class="btn">Join</button></a>
+                <a href=""
+                  ><button id="delete-btn" class="btn btn-danger">Delete</button></a
+                >
+              </div>
 
-            <div class="comments-section">
-              <h3>Comments</h3>
-              <article class="comment">
-                <strong>Ahmed Ali</strong> • <small>1 day ago</small>
-                <p>
-                  Is this group still accepting new members? I'm interested in
-                  joining!
-                </p>
-              </article>
+              <div class="comments-section">
+                <h3>Discussion</h3>
+                <article class="comment">
+                  <strong>Ahmed Ali</strong> • <small>1 day ago</small>
+                  <p>
+                    Is this group still accepting new members? I'm interested in
+                    joining!
+                  </p>
+                </article>
 
-              <article class="comment">
-                <strong>Fatima Mohammed</strong> • <small>5 hours ago</small>
-                <p>Yes, absolutely! We’re still accepting new members.</p>
-              </article>
+                <article class="comment">
+                  <strong>Fatima Mohammed</strong> • <small>5 hours ago</small>
+                  <p>Yes, absolutely! We’re still accepting new members.</p>
+                </article>
 
-              <form>
-                <label for="newComment">Share your thoughts</label>
-                <textarea
-                  id="newComment"
-                  rows="3"
-                  placeholder="What would you like to discuss?"
-                ></textarea>
-                <button type="submit" class="btn">Post Comment</button>
-              </form>
-            </div>
-          </details>
+                <form>
+                  <label for="newComment">Share your thoughts</label>
+                  <textarea
+                    id="newComment"
+                    rows="3"
+                    placeholder="What would you like to discuss?"
+                  ></textarea>
+                  <button type="submit" class="btn">Post Comment</button>
+                </form>
+              </div>
+            </details>
           </article>
         </div>
-      
+
         <div class="pagination_section">
           <a href=""><<</a>
           <a href="">1</a>
@@ -269,9 +328,11 @@
             type="text"
             id="newCourseCode"
             name="newCourseCode"
-            placeholder="Enter Course Code"
+            placeholder="Enter Course Code (e.g., ITSE305 or PHYCS101)"
+            pattern="[A-Za-z]{4,5}\d{3}"
+            title="4-5 letters followed by 3 digits"
             required
-          />
+            oninput="this.value = this.value.toUpperCase()"          />
         </div>
 
         <!-- Group Name -->
@@ -322,11 +383,39 @@
             </option>
           </select>
         </div>
-
-        <!-- Submit Button -->
+        <div class="grid">
         <div class="input-group">
-          <input class="btn" type="submit" type="Create Study Group">
-          <button type="button" class="btn" id="cncl-btn">Cancel</button>
+          <label for="maxMembers">Maximum Members</label>
+          <input
+            type="number"
+            id="maxMembers"
+            name="maxMembers"
+            min="2"
+            max="20"
+            value="5"
+            required
+          >
+          <small>Choose between 2-20 members</small>
+        </div>
+
+        <div class="input-group">
+          <label for="creationDate">Creation Date</label>
+          <input 
+            type="datetime" 
+            id="creationDate" 
+            name="creationDate" 
+            readonly          >
+        </div>
+      </div>
+        <!-- Submit Button -->
+        <div class="form-actions">
+          <button type="submit" class="btn">Create Study Group</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+          >
+            Cancel
+          </button>
         </div>
       </form>
     </main>
