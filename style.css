@@ -24,11 +24,9 @@ header {
 }
 
 header h1 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    margin: 0;
+    color: white !important;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
 }
 
 nav {
@@ -37,7 +35,10 @@ nav {
     gap: 15px;
     margin-top: 10px;
     flex-wrap: wrap;
+
 }
+
+
 
 nav a {
     color: #FFFFFF;
