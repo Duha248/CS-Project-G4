@@ -1,0 +1,150 @@
+/* Global style for body */
+
+body {
+    background-color: #E8DED1;
+    font-family: Arial; /* sans-serif;*/
+    color: #FFFFFF;
+}
+
+/* Container Styling */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    background-color: #C8AD7E;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+header h1 {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+header img {
+    border-radius: 50%; /* Circular profile picture */
+}
+
+/* Navigation Menu */
+nav {
+    text-align: center;
+    margin-top: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+/* Section Styling */
+section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    color: black;
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    background: white;
+    margin: 20px 0;
+}
+
+.brief {
+    background: #f1ece5;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Club Description Styling */
+details {
+    background: #E8DED1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+details summary {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Search Form Styling */
+form {
+    background: #f1ece5; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="text"], input[type="date"], textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="button"] {
+    padding: 8px 15px;
+    background-color:#C8AD7E;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input[type="button"]:hover {
+    background: #C8AD7E;
+}
+
+.results {
+    background: #f1ece5;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Styling */
+footer {
+    background: #C8AD7E;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer h5{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+footer a img {
+    margin: 10px;
+    transition: transform 0.2s;
+}
+
+footer a img:hover {
+    transform: scale(1.1);
+}
