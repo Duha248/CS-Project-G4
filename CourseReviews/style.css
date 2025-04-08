@@ -23,7 +23,7 @@ header {
 header h1 {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: left;
     gap: 0 10px;
     color: white;
 }
