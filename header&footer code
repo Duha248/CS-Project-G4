@@ -4,10 +4,11 @@
   
       <header>
         <main class="container">
-        <h1>Campus Hub </h1>
-        <a href=""> <!--the link of main page to be added-->
-            <img src="account photo.png"width="30px" height="30px"> 
-        </a>
+       <h1>
+            <a href=""> 
+                <img src="log.png" alt="Image" height="100px" width="100px"> 
+            </a>
+        Campus Hub</h1>
         
         <nav>
             <a href="">Calender</a> |
