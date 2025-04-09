@@ -25,11 +25,17 @@ header {
 header h1 {
     color: white;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: left;
     align-items: center;
     gap: 0 10px;
 }
 
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
 
 nav a {
     text-decoration: none;
