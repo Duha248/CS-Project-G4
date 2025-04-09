@@ -13,12 +13,9 @@
   <body>
     <header>
       <main class="container">
-        <img src="assets/log.png" width="200px" height="200px" />
+        <img src="log.png" width="200px" height="200px" />
         <h1>
           Campus Hub
-          <a href="#">
-            <!--<img src="assets/profile.jpeg" width="30px" height="30px" />-->
-          </a>
         </h1>
         <nav>
           <a href="#">Calendar</a> | <a href="#listing-view">Group Finder</a> |
@@ -45,14 +42,13 @@
             id="courseCode"
             name="courseCode"
             placeholder="Enter Course Code (e.g., ITSE305 or PHYCS101)"
-            required
+            maxlength="8"
           />
         </div>
-
         <!-- Filter by College -->
         <div id="college-option" class="input-group hidden">
           <label for="college">Filter by College</label>
-          <select id="college" name="college" required>
+          <select id="college" name="college" >
             <option value="">Select College</option>
             <option value="information-technology">
               College of Information Technology
@@ -103,6 +99,7 @@
       <hr />
 
       <section>
+        <a name="AvailableList"></a>
         <div class="results">
           <h3>Available Groups:</h3>
           <article class="group-listing">
@@ -124,14 +121,25 @@
                 <div class="member-list">
                   <span class="member-badge">Zainab Ahmed</span>
                   <span class="member-badge">Fatema Sayed</span>
-                  <span class="member-badge">Ali Reza</span>
+                  <span class="member-badge">Ali Redha</span>
                 </div>
               </div>
               <div class="controllers">
-                <a href=""><button id="Edit-btn" class="btn btn-secondary">Edit</button></a>
-                <a href=""><button id="join-btn" class="btn">Join</button></a>
                 <a href=""
-                  ><button id="delete-btn" class="btn btn-danger">Delete</button></a
+                  ><button id="C1-Edit-btn" class="btn btn-secondary">
+                    Edit
+                  </button></a
+                >
+                <a href=""><button id="G1-join-btn" class="btn">Join</button></a>
+                <a href=""
+                  ><button id="G1-delete-btn" class="btn btn-danger">
+                    Delete
+                  </button></a
+                >
+                <a href="#AvailableList"
+                  ><button id="G1-back-btn" class="btn btn-secondary">
+                    Back
+                  </button></a
                 >
               </div>
               <!-- Comments Section for Group 1 -->
@@ -140,24 +148,18 @@
                 <article class="comment">
                   <strong>Zainab Ahmed</strong> • <small>2 hours ago</small>
                   <p>
-                    Sounds Amazing! I'm really excited to dive into the world of
-                    software development. Can't wait to collaborate with all of
-                    you!
+                    Would like to delete last commit, which Git command should I
+                    use? I
                   </p>
                 </article>
 
                 <article class="comment">
                   <strong>Fatema Sayed</strong> • <small>30 minutes ago</small>
                   <p>
-                    Totally! Get ready to work on some cool projects. Looking
-                    forward to the teamwork!
-                  </p>
-                </article>
-                <article class="comment">
-                  <strong>Ali Reza</strong> • <small>15 minutes ago</small>
-                  <p>
-                    I'm new to this, but really excited to learn and contribute.
-                    Let's make this project a success together!
+                    You can use <code>git reset --soft HEAD~1</code> to undo the
+                    commit but keep changes, or
+                    <code>git reset --hard HEAD~1</code> to completely remove
+                    it.
                   </p>
                 </article>
                 <form>
@@ -191,47 +193,63 @@
                 <p><strong>Current Members (3):</strong></p>
                 <div class="member-list">
                   <span class="member-badge">Maryam Mansoor</span>
-                  <span class="member-badge">Zainab Sayed Ali</span>
+                  <span class="member-badge">Zainab Al-Musawi </span>
                   <span class="member-badge">Sayed Hadi Hasan</span>
                   <span class="member-badge">Mohammed Jawad</span>
-
                 </div>
               </div>
               <div class="controllers">
-                <a href=""><button id="Edit-btn" class="btn btn-secondary">Edit</button></a>
-                <a href=""><button id="join-btn" class="btn">Join</button></a>
                 <a href=""
-                  ><button id="delete-btn" class="btn btn-danger">Delete</button></a
+                  ><button id="G2-Edit-btn" class="btn btn-secondary">
+                    Edit
+                  </button></a
                 >
+                <a href=""><button id="G2-join-btn" class="btn">Join</button></a>
+                <a href=""
+                  ><button id="G2-delete-btn" class="btn btn-danger">
+                    Delete
+                  </button></a
+                >
+                <a href="#AvailableList"
+                ><button id="G2-back-btn" class="btn btn-secondary">
+                  Back
+                </button></a>
               </div>
               <!-- Comments Section for Group 2 -->
               <div class="comments-section">
                 <h3>Discussion</h3>
-                <article class="comment">
-                  <strong>Maryam Mansoor</strong> • <small>3 hours ago</small>
+                  <article class="comment">
+                    <strong>Mohammed Jawad</strong> • <small>1 day ago</small>
+                    <p>
+                      Does this course cover probability topics like Discrete
+                      Mathematics II?
+                    </p>
+                  </article>
+                  <article class="comment">
+                    <strong>Zainab Al-Musawi</strong> • <small>1 day ago</small>
+                    <p>
+                      Not exactly. This course is more centered around analyzing
+                      and designing algorithms, so probability isn't a major
+                      focus.
+                    </p>
+                  </article>
+                  <article class="comment">
+                  <strong>Sayed Hadi Hasan</strong> • <small>3 hours ago</small>
                   <p>
-                    If you're interested in algorithms, you definitely want to
-                    join us! We're diving deep into problem-solving strategies,
-                    and it's going to be a fantastic experience.
+                    In the expression <code>X = n/3 + n/4 + n/5</code>, the
+                    basic operation is multiplication. My question is, how many
+                    times does multiplication occur here—2 times or 3 times?
                   </p>
                 </article>
                 <article class="comment">
-                  <strong>Zainab Sayed Ali</strong> • <small>1 hour ago</small>
+                  <strong>Zainab Al-Musawi </strong> • <small>1 hour ago</small>
                   <p>
-                    Agreed! Algorithms are essential, and this group will help
-                    us learn them in a collaborative environment. I'm ready to
-                    get started!
+                    Actually, it only occurs twice. That's because division and
+                    multiplication by powers of 2 are handled as bit shifting
+                    (either shifting left or right), not as actual
+                    multiplication operations.
                   </p>
                 </article>
-                <article class="comment">
-                  <strong>Mohammed Jawad</strong> •
-                  <small>45 minutes ago</small>
-                  <p>
-                    Algorithm challenges are tough but rewarding. Excited to see
-                    what we'll work on together in this group!
-                  </p>
-                </article>
-
                 <form>
                   <label for="newComment">Share your thoughts</label>
                   <textarea
@@ -262,34 +280,60 @@
               <div class="members-section">
                 <p><strong>Current Members (5):</strong></p>
                 <div class="member-list">
-                  <span class="member-badge">Ahmed Ali</span>
+                  <span class="member-badge">Ebaa AlHussain</span>
                   <span class="member-badge">Fatima Mohammed</span>
-                  <span class="member-badge">Sara Sulail</span>
-                  <span class="member-badge">Zahra Mahdi</span>
-                  <span class="member-badge">Layla Mahmoud</span>
+                  <span class="member-badge">Jawad Alredha</span>
+                  <span class="member-badge">Alaa Mohammed</span>
+                  <span class="member-badge">Kawthar Ali</span>
                 </div>
               </div>
               <div class="controllers">
-                <a href=""><button id="Edit-btn" class="btn btn-secondary">Edit</button></a>
-                <a href=""><button id="join-btn" class="btn">Join</button></a>
                 <a href=""
-                  ><button id="delete-btn" class="btn btn-danger">Delete</button></a
+                  ><button id="G3-Edit-btn" class="btn btn-secondary">
+                    Edit
+                  </button></a
                 >
+                <a href=""><button id="G3-join-btn" class="btn">Join</button></a>
+                <a href=""
+                  ><button id="G3-delete-btn" class="btn btn-danger">
+                    Delete
+                  </button></a
+                >
+                <a href="#AvailableList"
+                ><button id="G3-back-btn" class="btn btn-secondary">
+                  Back
+                </button></a>
               </div>
 
               <div class="comments-section">
                 <h3>Discussion</h3>
                 <article class="comment">
-                  <strong>Ahmed Ali</strong> • <small>1 day ago</small>
+                  <strong>Ebaa AlHussain</strong> • <small>1 day ago</small>
                   <p>
-                    Is this group still accepting new members? I'm interested in
-                    joining!
+                    If I apply a force of +10 N to the right and friction acts
+                    with -10 N to the left, why are the signs important?
                   </p>
                 </article>
 
                 <article class="comment">
-                  <strong>Fatima Mohammed</strong> • <small>5 hours ago</small>
-                  <p>Yes, absolutely! We’re still accepting new members.</p>
+                  <strong>Alaa Mohammed</strong> • <small>1 day ago</small>
+                  <p>
+                    The signs indicate the direction of the forces. A positive
+                    sign means the force is applied in one direction (like to
+                    the right), and a negative sign means it's in the opposite
+                    direction (like to the left). The signs help us determine if
+                    the forces are working together or opposing each other. In
+                    this case, since the forces are equal but opposite, they
+                    cancel each other out.
+                  </p>
+                </article>
+
+                <article class="comment">
+                  <strong>Ebaa AlHussain</strong> • <small>1 day ago</small>
+                  <p>
+                    Ah, so the sign shows which way the force is acting. That
+                    makes sense! Thanks!
+                  </p>
                 </article>
 
                 <form>
@@ -306,6 +350,7 @@
           </article>
         </div>
 
+        <!--Pagination Section-->
         <div class="pagination_section">
           <a href=""><<</a>
           <a href="">1</a>
@@ -332,7 +377,9 @@
             pattern="[A-Za-z]{4,5}\d{3}"
             title="4-5 letters followed by 3 digits"
             required
-            oninput="this.value = this.value.toUpperCase()"          />
+            oninput="this.value = this.value.toUpperCase()"
+            maxlength="8"
+          />
         </div>
 
         <!-- Group Name -->
@@ -344,6 +391,7 @@
             name="groupName"
             placeholder="Enter Group Name"
             required
+            maxlength="50"
           />
         </div>
 
@@ -383,39 +431,39 @@
             </option>
           </select>
         </div>
+
         <div class="grid">
-        <div class="input-group">
-          <label for="maxMembers">Maximum Members</label>
-          <input
-            type="number"
-            id="maxMembers"
-            name="maxMembers"
-            min="2"
-            max="20"
-            value="5"
-            required
-          >
-          <small>Choose between 2-20 members</small>
+          <!--Members-->
+          <div class="input-group">
+            <label for="maxMembers">Maximum Members</label>
+            <input
+              type="number"
+              id="maxMembers"
+              name="maxMembers"
+              min="2"
+              max="50"
+              value="5"
+              required
+            />
+            <small>Choose between 2-50 members</small>
+          </div>
+
+          <!--Creation Date-->
+          <div class="input-group">
+            <label for="creationDate">Creation Date</label>
+            <input
+              type="datetime"
+              id="creationDate"
+              name="creationDate"
+              readonly
+            />
+          </div>
         </div>
 
-        <div class="input-group">
-          <label for="creationDate">Creation Date</label>
-          <input 
-            type="datetime" 
-            id="creationDate" 
-            name="creationDate" 
-            readonly          >
-        </div>
-      </div>
         <!-- Submit Button -->
         <div class="form-actions">
           <button type="submit" class="btn">Create Study Group</button>
-          <button
-            type="button"
-            class="btn btn-secondary"
-          >
-            Cancel
-          </button>
+          <button type="button" class="btn btn-secondary">Cancel</button>
         </div>
       </form>
     </main>
@@ -426,13 +474,13 @@
       <main class="container">
         <h5>University Official Accounts</h5>
         <a href="https://www.instagram.com/uobedubh/?hl=ar">
-          <img src="assets/Instagram.jpeg" width="30px" height="30px" />
+          <img src="instanew.png" width="30px" height="30px" />
         </a>
         <a href="https://www.facebook.com/MyUOB/">
-          <img src="assets/Facebook.jpeg" width="30px" height="30px" />
+          <img src="facebook-new.png" width="30px" height="30px" />
         </a>
         <a href="https://www.uob.edu.bh/">
-          <img src="assets/Web.jpeg" width="30px" height="30px" />
+          <img src="webnew.png" width="30px" height="30px" />
         </a>
         <h5>&copy; 2025 Campus Hub</h5>
       </main>
