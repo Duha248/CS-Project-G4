@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <main class="container">
+       <h1>
+            <a href=""> 
+                <img src="log.png" alt="Image" height="100px" width="100px"> 
+            </a>
+        Campus Hub</h1>
+        
+        <nav>
+            <a href="">Main Page</a> |
+            <a href="">Group Finder</a> |
+            <a href="">Course Reviews</a> |
+            <a href="">Course Notes</a> |
+            <a href="">Campus News</a> |
+            <a href="">Club Activities</a> |
+            <a href="">Student Marketplace</a> 
+        </nav>
+        </main>
+    </header>
+    <hr>
+
+    <main class="container">
+        <section class="module-intro">
+            <a href="#" class="back-link">Back to the main menu</a>
+            <h2>Student Marketplace</h2>
+            <p><em>Welcome to the Student page where you can find items sale in your campus</em></p>
+        </section>
+<section class="search-form">
+    <form>
+        <div class="form-item">
+            <label for="item">Item</label>
+            <input type="text" placeholder="search for an item" />
+        </div>
+
+        <div class="form-item">
+            <label for="item">Filter by Condition</label>
+            <select id="item">
+                <option value="">select Condition</option>
+                <option value="new">new</option>
+                <option value="used">used</option>
+            </select>
+        </div>
+
+        <div class="form-item">
+            <label for="sort-by">Sort Items By Price</label>
+            <select id="sort-by">
+                <option value="default">Default</option>
+                <option value="high">High - Low</option>
+                <option value="low">Low - High</option>
+            </select>
+        </div>
+
+        <button type="submit" class="submit-button">Find Item</button>
+    </form>
+</section>
+        <section class="items-list" id="items-list">
+            <div class="item-card animated-card">
+                <h3>Python Programming Book</h3>
+                <p><strong>Description:</strong> A book that explains the basics of Python programming.</p>
+                <p><strong>Condition:</strong> New</p>
+                <p><strong>Price:</strong> 50 BD</p>
+                <p><strong>Contact:</strong> 05xxxxxxxx</p>
+            </div>
+        </section>
+        <section class="navigation-buttons">
+            <button id="prev-item" class="animated-button">Previous Item</button>
+            <button id="next-item" class="animated-button">Next Item</button>
+        </section>
+        <section class="add-item-form">
+            <h3>Add a New Item</h3>
+            <form id="add-item-form">
+                <div class="form-group">
+                    <label for="item-title">Book Title</label>
+                    <input type="text" id="item-title" required />
+                </div>
+                <div class="form-group">
+                    <label for="item-description">Description</label>
+                    <textarea id="item-description" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="item-condition">Condition</label>
+                    <select id="item-condition" required>
+                        <option value="new">New</option>
+                        <option value="used">Used</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="item-price">Price</label>
+                    <input type="number" id="item-price" min="0" required />
+                </div>
+                <div class="form-group">
+                    <label for="item-contact">Contact Number</label>
+                    <input type="tel" id="item-contact" required />
+                </div>
+                <button type="submit" class="submit-button animated-button">Add Item</button>
+            </form>
+        </section>
+    </main>
+    <hr>
+    <footer>
+        <main class="container">
+        <h5>University Official Accounts</h5>
+        <a href= "https://www.instagram.com/uobedubh/?hl=ar">
+            <img src="instanew.png" width="30px" height="30px">
+        </a>
+        <a href="https://www.facebook.com/MyUOB/">
+            <img src="facebook-new.png"width="30px" height="30px"> 
+        </a>
+        <a href="https://www.uob.edu.bh/">
+            <img src="webnew.png"width="30px" height="30px"> 
+        </a>
+        <h5>&copy; 2025 Campus Hub</h5>
+    </main>
+    </footer>
+</body>
+</html>
