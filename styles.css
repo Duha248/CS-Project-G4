@@ -1,0 +1,102 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E8DED1; 
+    margin: 0;
+    padding: 0;
+    color: #A0816C; 
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    flex-grow: 1; 
+}
+
+/* Header */
+header {
+    background-color: #C8AD7E; 
+    color: #FFFFFF; 
+    padding: 15px 0;
+    text-align: center;
+}
+
+header h1 {
+    color: white !important;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 10px;
+    font-size: 3rem;
+}
+
+header h1 img {
+    vertical-align: middle;
+}
+
+/* Paragraph*/
+p {
+    font-size: 1.35rem;
+    color: #A0816C; 
+    font-weight: 500;
+    margin-bottom: 2rem;
+    text-align: center; 
+    max-width: 800px; 
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+/* Icons Section */
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.icon-box {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.icon-box:hover {
+    transform: translateY(-5px);
+}
+
+.icon-box i {
+    font-size: 3rem; 
+    color: #C8AD7E;
+    margin-bottom: 0.5rem;
+}
+
+.icon-box p {
+    margin: 0;
+    font-weight: 600;
+    color: #A0816C;
+}
+
+/* Footer */
+footer {
+    background-color: #C8AD7E; 
+    color: #FFFFFF; 
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer h5 {
+    color: white !important;
+    font-weight: bold;
+}
+
+footer a img {
+    margin: 5px;
+    border-radius: 5px;
+}
