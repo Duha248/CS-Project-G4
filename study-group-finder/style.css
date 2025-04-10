@@ -27,12 +27,15 @@ header h1 {
     color: white !important;
     font-weight: bold;
     font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 0 10px;
 }
 
 nav {
     display: flex;
     justify-content: center;
-    gap: 15px;
     margin-top: 10px;
     flex-wrap: wrap;
 
