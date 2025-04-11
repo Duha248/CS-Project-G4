@@ -227,7 +227,3 @@ footer a img {
     transition: transform 0.2s;
     border-radius: 5px;
 }
-
-footer a img:hover {
-    transform: scale(1.1);
-}

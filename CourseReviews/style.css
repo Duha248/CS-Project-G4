@@ -1,0 +1,156 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E8DED1;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color:#C8AD7E;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    gap: 0 10px;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+.intro {
+    font-style: italic;
+}
+.sorting {
+    background-color:#E8DED1;
+}
+/* Search and Filter */
+input[type="text"], select {
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #BFAB8C;
+    border-radius: 5px;
+}
+
+input[type="button"] {
+    padding: 8px 15px;
+    background-color:#C8AD7E;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input[type="button"]:hover {
+    background-color: #A0816C;
+}
+
+/* Reviews Section */
+.results {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+details {
+    background: #E8DED1;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+summary {
+    font-weight: bold;
+    cursor: pointer;
+ 
+    
+}
+
+/* Pagination */
+.pagination_section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination_section a {
+    padding: 8px 12px;
+    margin: 5px;
+    text-decoration: none;
+    background: #C8AD7E;
+    color: white;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.pagination_section a:hover {
+    background: #A0816C;
+}
+
+/* Form */
+form {
+    background: #f1ece5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #C8AD7E;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #A0816C;
+}
+
+/* Footer */
+footer {
+    background-color: #C8AD7E;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer a img {
+    margin: 0 10px;
+}
+
+footer h5{
+    color: white;
+}
