@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>COURSE REVIEWS</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <header>
+        <main class="container">
+        <h1>
+            <a href=""> 
+                <img src="log.png" alt="Image" height="100px" width="100px"> 
+            </a>
+        Campus Hub</h1>
+        <nav> 
+            <a href="">Main Page</a> |
+            <a href="">Group Finder</a> |
+            <a href="">Course Reviews</a> |
+            <a href="">Course Notes</a> |
+            <a href="">Campus News</a> |
+            <a href="">Club Activities</a> |
+            <a href="">Student Marketplace</a> 
+        </nav>
+        </main>
+    </header>
+
+    <hr>
+
+    <body>
+        <main class="container">
+
+        <section>
+        <h2>Course Reviews</h2>
+        <p class="intro">Display students reviews about courses, and share your own easily!</p>
+        <input type="text" placeholder="Search by course, ex. ITCY354, etc..." size="60"> 
+        <input type="button" value="Filter" >
+        <select class="sorting" name="sort">
+            <option value="1">Old To New</option>
+            <option value="2">New To Old</option>
+        </select>
+        </section>
+
+        <hr>
+
+        <section>
+        <div class="results">
+            <h3>Reviews:</h3>
+            <br>
+            <details>
+                <summary>
+                    <p><strong>Course: ITCS333</strong></p> 
+                    <p><strong>Year: 2022</strong></p> 
+                </summary>
+                <p><strong>Author:</strong> Nazek Ahmed</p>
+                <p><strong>Review:</strong>Course is simple but require intensive practice and based on previous knowledge especially in 114. Professor was helpful.</p>
+              </details>
+
+              <br>
+
+              <details>
+                <summary>
+                    <p><strong>Course: ITNE110</strong></p> 
+                    <p><strong>Year: 2022</strong></p> 
+                </summary>
+                <p><strong>Author:</strong> Ali Sadeq</p>
+                <p><strong>Review:</strong>Horrible course, as the professor tend to challenge students with the exams and make the quizzes, tests, project and assignment very challenging. </p>
+              </details>
+
+              <br>
+
+              <details>
+                <summary>
+                    <p><strong>Course: ITCY354</strong></p> 
+                    <p><strong>Year: 2023</strong></p> 
+                </summary>
+                <p><strong>Author:</strong> Arwa Khalid</p>
+                <p><strong>Review:</strong>Course is really difficult, material is not yet prepared as the course is new and this is the first semester, chaotic course!</p>
+              </details>
+
+              <br>
+
+              <details>
+                <summary>
+                    <p><strong>Course: ITNE110</strong></p> 
+                    <p><strong>Year: 2022</strong></p> 
+                </summary>
+                <p><strong>Author:</strong> Amena Rajab</p>
+                <p><strong>Review:</strong> material was easy, but the coordinator made it impossible to solve the exams , very traumatic experience.</p>
+              </details>
+
+              <br>
+
+              <details>
+                <summary>
+                    <p><strong>Course: ITCY201</strong></p> 
+                    <p><strong>Year: 2022</strong></p> 
+                </summary>
+                <p><strong>Author:</strong> Isa Alkhalifa</p>
+                <p><strong>Review:</strong>very simple course, doctor Ali Zolait is supportive and help student, tests, quizzes and homeworks were easy.</p>
+              </details>
+
+              <br>
+
+              <details>
+                <summary>
+                    <p><strong>Course: ITIS322</strong></p> 
+                    <p><strong>Year: 2024</strong></p> 
+                </summary>
+                <p><strong>Author:</strong> Hafsa Nadeem</p>
+                <p><strong>Review:</strong>Peice of cake! no quizzes, professors were supportive and considrate.</p>
+              </details>
+        </div>
+        </section>
+
+        <section>
+        <div class="pagination_section">
+            <a href=""><<</a>
+            <a href="">1</a>
+            <a href="">2</a>
+            <a href="">3</a>
+            <a href="">4</a>
+            <a href="">5</a>
+            <a href="">>></a>
+        </div>
+        </section>
+        
+        <br>
+        <hr>
+        <br>
+
+        <h3> Add Review</h3>
+        <form>
+            <label for="course">Course:</label>
+            <input type="text" id="course" placeholder="Course Code" size="50" required> 
+            <br>
+            <label for="year">Year:</label>
+            <input type="text" id="year" placeholder="Year taking the course" size="50" required> 
+            <br>
+            <label for="review">Review:</label>
+            <input type="text" id="review" placeholder="Add your review" size="50" required> 
+            <br>
+            <label for="author">Author:</label>
+            <input type="radio" id="author" name="a" id="p" value="name">public
+            <input type="radio" name="a" id="a" value="anonymous">anonymous
+            <br>
+            <input type="submit" value="Add">
+            <br>
+        </form>
+            
+
+    </main>
+    </body>
+    
+    <hr>
+
+    <footer>
+        <main class="container">
+        <h5>University Official Accounts</h5>
+        <a href= "https://www.instagram.com/uobedubh/?hl=ar">
+            <img src="instanew.png" width="30px" height="30px">
+        </a>
+        <a href="https://www.facebook.com/MyUOB/">
+            <img src="facebook-new.png"width="30px" height="30px"> 
+        </a>
+        <a href="https://www.uob.edu.bh/">
+            <img src="webnew.png"width="30px" height="30px"> 
+        </a>
+        <h5>&copy; 2025 Campus Hub</h5>
+    </main>
+    </footer>
+
+</html>
