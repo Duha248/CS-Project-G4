@@ -1,0 +1,43 @@
+<!--Header code-->
+<!--Note that it is already integrated with PicoCSS framework-->
+<!--Image on Whatsapp group-->
+  
+<header>
+    <main class="container">
+   <h1>
+        <a href=""> 
+            <img src="log.png" alt="Image" height="100px" width="100px"> 
+        </a>
+    Campus Hub</h1>
+    
+    <nav>
+        <a href="">Main Page</a> |
+        <a href="">Group Finder</a> |
+        <a href="">Course Reviews</a> |
+        <a href="">Course Notes</a> |
+        <a href="">Campus News</a> |
+        <a href="">Club Activities</a> |
+        <a href="">Student Marketplace</a> 
+    </nav>
+    </main>
+</header>
+<hr>
+
+<!--Footer code-->
+<hr>
+<footer>
+    <main class="container">
+    <h5>University Official Accounts</h5>
+    <a href= "https://www.instagram.com/uobedubh/?hl=ar">
+        <img src="instanew.png" width="30px" height="30px">
+    </a>
+    <a href="https://www.facebook.com/MyUOB/">
+        <img src="facebook-new.png"width="30px" height="30px"> 
+    </a>
+    <a href="https://www.uob.edu.bh/">
+        <img src="webnew.png"width="30px" height="30px"> 
+    </a>
+    <h5>&copy; 2025 Campus Hub</h5>
+</main>
+</footer>
+
