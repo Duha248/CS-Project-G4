@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- create the html page -->
+<head>
+    <meta charset = "UTF-8">
+    <title>Campus Hub - Course Notes</title>
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "styles.css">
+</head>
+
+<body> 
+
+    <!-- the header -->  
+    <header>
+        <main class="container">
+       <h1>
+            <a href=""> 
+                <img src="pictures/log.png" alt="Image" height="100px" width="100px"> 
+            </a>
+        Campus Hub</h1>
+        
+        <nav>
+            <a href="../index.html">Main Page</a> |
+            <a href="../study-group-finder/study-group-finder.html">Group Finder</a> |
+            <a href="../CourseReviews/CourseReviews.html">Course Reviews</a> |
+            <a href="../CourseNotes/courseNotes.html">Course Notes</a> |
+            <a href="../CampusNews/CampusNews.html">Campus News</a> |
+            <a href="../club-activities/ClubActivities.html">Club Activities</a> |
+            <a href="../marketplace/StudentMarketplace.html">Student Marketplace</a> 
+        </nav>
+        </main>
+    </header>
+    <hr>  <!-- Line separator-->
+
+    <!-- main content -->
+    <main class="container">
+        <h2>Course Notes</h2>
+        <p class="welcome-message">
+            Feel free to search for any course notes uploaded by previous students or contribute by adding new notes!
+        </p>
+        <hr>
+
+        <!-- the search bar and sorting filter -->
+        <section class="filters">
+            <input type="text" placeholder="Search notes...">
+        
+            <label for="sort">Sort by:</label>
+            <select id="sort" class="search-sort">
+                <option value="newest">Newest to Oldest</option>
+                <option value="oldest">Oldest to Newest</option>
+                <option value="a-z">A to Z</option>
+                <option value="z-a">Z to A</option>
+            </select>
+            <button>Search</button>
+        </section>
+
+       <!-- the notes lists -->
+<section class="grid">
+    <section class="grid">
+        <article>
+          <h3>Note Title</h3>
+          <p>Note content here...</p>
+          <button>Open</button>
+        </article>
+      
+    </section>
+    <article>
+        <h3>ITCS333 - INTERNET SOFTWARE DEVELOPMENT</h3>
+        <p>Uploaded by: Malak</p>
+        <p>Summary: Introduction to HTML...</p>
+        <button>View Notes</button>
+    </article>
+
+    <article>
+        <h3>ITCS214 - DATA STRUCTURE</h3>
+        <p>Uploaded by: Ameena</p>
+        <p>Summary: Abstract Data Type (ADT)...</p>
+        <button>View Notes</button>
+    </article>
+
+    <article>
+        <h3>MATHS101 - Calculus I </h3>
+        <p>Uploaded by: Anfal</p>
+        <p>Summary: IndeterminateFormsofLimits...</p>
+        <button>View Notes</button>
+    </article>
+
+    <article>
+        <h3>ITCE101 - Introduction to Computer and Network Technology</h3>
+        <p>Uploaded by: Dana</p>
+        <p>Summary: How Computers Represent Data...</p>
+        <button>View Notes</button>
+    </article>
+    <article>
+        <h3>ITIS213 - DATABASE Management Systems</h3>
+        <p>Uploaded by: Duha</p>
+        <p>Summary: SQL and database design...</p>
+        <button>View Notes</button>
+    </article>
+
+    <article>
+        <h3>ITNE341 - NETWORK SECURITY</h3>
+        <p>Uploaded by: Maryam</p>
+        <p>Summary:  Network Security Services...</p>
+        <button>View Notes</button>
+    </article>
+      
+        <!-- "Click for More" Button at the end -->
+        <div class="load-more-card">
+          <button id="loadMoreBtn">Click for More</button>
+        </div>
+        
+</section>
+
+        <!-- new notes forms -->
+        <section>
+            <h3>Upload New Notes</h3>
+            <form>
+                <label for="course">Course Name:</label>
+                <input type="text" id="course" name="course" required>
+        
+                <label for="title">Note Title:</label>
+                <input type="text" id="title" name="title" required>
+        
+                <label for="author">Uploader Name:</label>
+                <input type="text" id="author" name="author" required>
+        
+                <label for="date">Upload Date:</label>
+                <input type="date" id="date" name="date" required>
+        
+                <label for="college">Select College:</label>
+                <select id="college" name="college" required>
+                    <option value="">-- Select College --</option>
+                    <option value="applied-studies">College of Applied Studies</option>
+                    <option value="arts">College of Arts</option>
+                    <option value="teachers-college">Bahrain Teachers College</option>
+                    <option value="business">College of Business Administration</option>
+                    <option value="engineering">College of Engineering</option>
+                    <option value="health-sports">College of Health and Sport Sciences</option>
+                    <option value="it">College of Information Technology</option>
+                    <option value="law">College of Law</option>
+                    <option value="science">College of Science</option>
+                </select>
+        
+                <label for="content">Note Content:</label>
+                <textarea id="content" name="content" required></textarea>
+        
+                <button type="submit">Upload</button>
+            </form>
+        </section>        
+    </main>
+
+    <!-- the footer -->
+    <hr>
+    <footer>
+        <main class="container">
+        <h5>University Official Accounts</h5>
+        <a href= "https://www.instagram.com/uobedubh/?hl=ar">
+            <img src="pictures/instanew.png" width="30px" height="30px">
+        </a>
+        <a href="https://www.facebook.com/MyUOB/">
+            <img src="pictures/facebook-new.png"width="30px" height="30px"> 
+        </a>
+        <a href="https://www.uob.edu.bh/">
+            <img src="pictures/webnew.png"width="30px" height="30px"> 
+        </a>
+        <h5>&copy; 2025 Campus Hub</h5>
+    </main>
+    </footer>
+
+</body>
+</html>

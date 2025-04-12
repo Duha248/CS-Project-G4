@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<!-- HTML page creation -->
+<head>
+    <meta charset = "UTF-8">
+    <title>Club Activities</title>
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel = "stylesheet" href = "style.css">
+</head>
+
+<!-- Body of the HTML page -->
+<body>
+    <header>
+        <main class = "container">
+            <h1><a href = "../index.html">
+                <img src = "log.png" width = "150px" height = "150px" >
+            </a>Campus Hub</h1>
+        <!-- The navigation bar -->
+            <nav>
+                <a href = "../index.html">Main Page</a> |
+                <a href = "../study-group-finder/study-group-finder.html">Group Finder</a> |
+                <a href = "../CourseReviews/CourseReviews.html">Course Reviews</a> |
+                <a href = "../CourseNotes/courseNotes.html">Course Notes</a> |
+                <a href = "../club-activities/ClubActivities.html">Club Activities</a> |
+                <a href = "../CampusNews/CampusNews.html">Campus News</a> |
+                <a href = "../marketplace/StudentMarketplace.html">Marketplace</a>
+            </nav>
+        </main>
+    </header>
+
+    <hr>
+    <main class = "container">
+        <section>
+
+        <!-- Information about club activities: -->
+        
+            <h1>About Club Activities</h1>
+            <p>At Campus Hub, we provide the ultimate University experience by
+                encouraging students to participate in various activities.</p>
+        </section>
+        <hr>
+
+        <!-- Introductory display of the clubs: -->
+        <section>
+            <h3>Get to know our clubs!</h3>
+            <div class = "results">
+                <details>
+                    <summary>Music Club</summary>
+                    <p>The Music club is all about giving the students who have a passion 
+                        in singing, playing an instrument or even just performing a home.</p>
+                </details><br>
+
+                <details>
+                    <summary>Debate Club</summary>
+                    <p>The Debate club is for the students who love public speaking and want to improve their 
+                        argumentation and comunication skills, it also help build confidence. </p>
+                </details><br>
+
+                <details>
+                    <summary>Chess Club</summary>
+                    <p>The chess club is a big community with top students that have advanced 
+                        problem-solving skills, it helps improve your logical thinking and also helps you relax.</p>
+                </details><br>
+
+                <details>
+                    <summary>Sports Club</summary>
+                    <p>The sports club is for the students who love sports and want to stay active,
+                        it has a big role in building teamwork and getting to know new people.</p>
+                </details>
+            </div>
+        </section>
+        <hr>
+
+        <!-- Search of any activity using the search bar (<form>) and filtering with the provided clubs: -->
+        <section>
+            <h3>Search for Upcoming Activities:</h3>
+            <form>
+                <input type = "text" placeholder = "Search for an activity..." required>
+                <br>
+                
+                <label for = "clubs">Select a club:</label>
+                <select id = "club" name = "club" required>
+                    <option value = "Music Club">Music Club</option>
+                    <option value = "Debate Club">Debate Club</option>
+                    <option value = "Chess Club">Chess Club</option>
+                    <option value = "Sports Club">Sports Club</option>
+                </select>
+                <br>
+
+                <select id = "sort" name = "sort">
+                    <option >Upcoming</option>
+                </select>
+                <br>
+
+                <input type="button" value="Search" >
+            </form> 
+        </section>
+
+        <!-- Showing how the results would show: -->
+        <section>
+            <div class = "results" >
+                <h3>Results:</h3>
+                <details>
+                    <summary>
+                        Debate Club 
+                        <br><br>
+                        Competition Training
+                    </summary>
+                    <strong>Date: </strong>
+                    <p>2025-02-20</p>
+                    <strong>Location: </strong>
+                    <p>Room 101</p>
+                    <strong>Description: </strong>
+                    <p>Competition training and preperations for the upcoming debate competition.</p>
+                </details><br>
+                <details>
+                    <summary>
+                        Sports Club 
+                        <br><br>
+                        Basketball Match
+                    </summary>
+                    <strong>Date: </strong>
+                    <p>2025-09-28</p>
+                    <strong>Location: </strong>
+                    <p>Room 123</p>
+                    <strong>Description: </strong>
+                <p>Join us for a friendly basketball match against the opposing team.</p>
+                </details><br>
+            </div>
+
+            <!-- The pagination buttons: -->
+            <div class="paginationing">
+                <a href=""><<</a>
+                <a href="">1</a>
+                <a href="">2</a>
+                <a href="">3</a>
+                <a href="">4</a>
+                <a href="">5</a>
+                <a href="">>></a>
+            </div>
+
+        </section>
+        <hr>
+        
+        <!-- Adding an activity form: -->
+        <section>
+            <h3>Add Activity</h3>
+            <form>
+                <label for = "club" ><Strong>CLUB:</Strong> 
+                    <br><br>
+                    <input type="radio" id="music" name="club" required>Music Club
+                    <input type="radio" id="debate" name="club">Debate Club
+                    <input type="radio" id="chess" name="club">Chess Club
+                    <input type="radio" id="sports" name="club">Sports Club
+                    <br><br>
+                </label>
+
+                <label for="title">Activity Title:</label>
+                <input type="text" id="title" required>
+                <br><br>
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" required>
+                <br><br>
+
+                <label for="location">Location:</label>
+                <input type="text" id="location" required>
+                <br><br>
+
+                <label for="description">Description:</label>
+                <textarea id="description" required></textarea>
+                <br><br>
+
+                <input type="button" value="Add" >
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer (Synchronized to all pages): -->
+    <hr>
+    <footer>
+        <main class="container">
+            <h5>University Official Accounts</h5>
+            <a href= "https://www.instagram.com/uobedubh/?hl=ar">
+                <img src="instaact.png" width="30px" height="30px">
+            </a>
+            <a href="https://www.facebook.com/MyUOB/">
+                <img src="facebookact.png"width="30px" height="30px"> 
+            </a>
+            <a href="https://www.uob.edu.bh/">
+                <img src="webact.png"width="30px" height="30px"> 
+            </a>
+            <h5>&copy; 2025 Campus Hub</h5>
+        </main>
+    </footer>
+</body>
+</html>
