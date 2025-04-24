@@ -7,6 +7,7 @@
         <title>Club Activities</title>
         <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
         <link rel = "stylesheet" href = "style.css">
+        <script src="script.js" defer></script>
     </head>
 
 <!-- Body of the HTML page -->
@@ -45,7 +46,7 @@
         <!-- Introductory display of the clubs: -->
         <section>
             <h3>Get to know our clubs!</h3>
-            <div class = "results">
+            <div class = "info">
                 <details>
                     <summary>Music Club</summary>
                     <p>The Music club is all about giving the students who have a passion 
@@ -75,27 +76,15 @@
 
         <!-- Search of any activity using the search bar (<form>) and filtering with the provided clubs: -->
         <section>
-            <h3>Search for Upcoming Activities:</h3>
-            <form>
-                <input type = "text" placeholder = "Search for an activity..." required>
-                <br>
-                
-                <label for = "clubs">Select a club:</label>
-                <select id = "club" name = "club" required>
-                    <option value = "Music Club">Music Club</option>
-                    <option value = "Debate Club">Debate Club</option>
-                    <option value = "Chess Club">Chess Club</option>
-                    <option value = "Sports Club">Sports Club</option>
+            <section class="search-filter">
+                <h3>Search for Upcoming Activities:</h3>
+                <input type="text" placeholder="Search for activities by club name, ex. Chess, Debate, Music or Sports." />
+                <select class="sorting">
+                    <option value= "1">Newest to oldest</option>
+                    <option value= "2">Oldest to newest</option>
                 </select>
-                <br>
+                <button type="submit" id="submit-button"><strong> Search</strong></button>
 
-                <select id = "sort" name = "sort">
-                    <option >Upcoming</option>
-                </select>
-                <br>
-
-                <input type="button" value="Search" >
-            </form> 
         </section>
 
         <!-- Showing how the results would show: -->
@@ -104,36 +93,87 @@
                 <h3>Results:</h3>
                 <details>
                     <summary>
-                        Debate Club 
-                        <br><br>
-                        Competition Training
+                        <P><strong>Club: Debate</strong></P>
+                        <P> <strong>Activity: Competition Training</strong> </P>
+                        <p><strong>Date: </strong>2025-02-20</p>
                     </summary>
-                    <strong>Date: </strong>
-                    <p>2025-02-20</p>
-                    <strong>Location: </strong>
-                    <p>Room 101</p>
-                    <strong>Description: </strong>
-                    <p>Competition training and preperations for the upcoming debate competition.</p>
+                    <p><strong>Location: </strong>Room 101</p>
+                    <p><strong>Description: </strong>Competition training and preperations for the upcoming debate competition.</p>
                 </details><br>
                 <details>
                     <summary>
-                        Sports Club 
-                        <br><br>
-                        Basketball Match
+                        <P><strong>Club: Sports</strong></P>
+                        <P> <strong>Activity: Basketball Match</strong> </P>
+                        <p><strong>Date: </strong>2025-09-28</p>
                     </summary>
-                    <strong>Date: </strong>
-                    <p>2025-09-28</p>
-                    <strong>Location: </strong>
-                    <p>Room 123</p>
-                    <strong>Description: </strong>
-                <p>Join us for a friendly basketball match against the opposing team.</p>
+                    <p><strong>Location: </strong>University feild</p>
+                    <p><strong>Description: </strong>Join us for a friendly basketball match against the opposing team.</p>
                 </details><br>
+
+                <details>
+                    <summary>
+                        <P><strong>Club: Chess</strong></P>
+                        <P> <strong>Activity: Introductory chess</strong> </P>
+                    <p><strong>Date: </strong>2025-10-15</p>
+                </summary>
+                    <p><strong>Location: </strong>Room 089</p>
+                    <p><strong>Description: </strong>Get to know our chess mates and understand chess rules basics.</p>
+                </details><br>
+
+                <details>
+                    <summary>
+                        <P><strong>Club: Sports</strong></P>
+                        <P> <strong>Activity: Football formation</strong> </P>
+                        <p><strong>Date: </strong>2025-09-13</p>
+                     </summary>
+                    <p><strong>Location: </strong>University feild</p>
+                    <p><strong>Description: </strong>Choosing team players and their roles.</p>
+                </details><br>
+
+                <details>
+                    <summary>
+                        <P><strong>Club: Music</strong></P>
+                        <P> <strong>Activity: Piano and cello training</strong> </P>
+                        <p><strong>Date: </strong>2025-10-24</p>
+                    </summary>
+                    <p><strong>Location: </strong>Room 122</p>
+                    <p><strong>Description: </strong>piano musicians meet cello musicians and train.</p>
+                </details><br>
+
+                <details>
+                    <summary>
+                        <P><strong>Club: Music</strong></P>
+                        <P> <strong>Activity: Piano lesson</strong> </P>
+                        <p><strong>Date: </strong>2025-09-20</p>
+                    </summary>
+                        <p><strong>Location: </strong>Room 122</p>
+                    <p><strong>Description: </strong>Reading piano music sheets and playing them.</p>
+                </details><br>
+
+                <details>
+                    <summary>
+                        <P><strong>Club: Debate</strong></P>
+                        <P> <strong>Activity: Uniform vs Casual</strong> </P>
+                        <p><strong>Date: </strong>2025-11-01</p>
+                    </summary>
+                    <p><strong>Location: </strong>Room 109</p>
+                    <p><strong>Description: </strong>debate team splits to two and debate about uniform versus casual clothes.</p>
+                </details><br>
+                <details>
+                    <summary>
+                        <P><strong>Club: Chess</strong></P>
+                        <P> <strong>Activity: Chess tournament</strong> </P>
+                        <p><strong>Date: </strong>2025-10-20</p>
+                    </summary>
+                    <p><strong>Location: </strong>Room 300</p>
+                    <p><strong>Description: </strong>A simple chess tornement between teams.</p>
+                </details><br>
+
             </div>
 
             <!-- The pagination buttons: -->
             <div class="paginationing">
                 <a href=""><<</a>
-                <a href="">1</a>
                 <a href="">2</a>
                 <a href="">3</a>
                 <a href="">4</a>
@@ -150,7 +190,7 @@
             <form>
                 <label for = "club" ><Strong>CLUB:</Strong> 
                     <br><br>
-                    <input type="radio" id="music" name="club" required>Music Club
+                    <input type="radio" id="music" name="club" >Music Club
                     <input type="radio" id="debate" name="club">Debate Club
                     <input type="radio" id="chess" name="club">Chess Club
                     <input type="radio" id="sports" name="club">Sports Club
@@ -158,22 +198,23 @@
                 </label>
 
                 <label for="title">Activity Title:</label>
-                <input type="text" id="title" required>
+                <input type="text" id="title" >
                 <br><br>
 
                 <label for="date">Date:</label>
-                <input type="date" id="date" required>
+                <input type="date" id="date" >
                 <br><br>
 
                 <label for="location">Location:</label>
-                <input type="text" id="location" required>
+                <input type="text" id="location" >
                 <br><br>
 
                 <label for="description">Description:</label>
-                <textarea id="description" required></textarea>
+                <textarea id="description" ></textarea>
                 <br><br>
 
-                <input type="button" value="Add" >
+                <input type="submit" id="submit-button" value="Add" >
+                <p id="form-error" style="color:red;"></p>
             </form>
         </section>
     </main>
