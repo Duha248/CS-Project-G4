@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.textContent = "View Notes";
             btn.addEventListener("click", () => {
                 localStorage.setItem("selectedNote", JSON.stringify(note));
-                window.location.href = "noteDetail.html";
+                window.location.href = "NoteDetail.html";
             });
             article.appendChild(btn);
             grid.appendChild(article);
