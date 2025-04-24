@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Campus Hub - Note Detail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the same stylesheet -->
+</head>
+
+<body>
+
+    <!-- the header -->
+    <header>
+        <main class="container">
+            <h1>
+                <a href="">
+                    <img src="pictures/log.png" alt="Campus Hub Logo" height="100px" width="100px">
+                </a>
+                Campus Hub
+            </h1>
+
+            <nav>
+                <a href="">Main Page</a> |
+                <a href="">Group Finder</a> |
+                <a href="">Course Reviews</a> |
+                <a href="">Course Notes</a> |
+                <a href="">Campus News</a> |
+                <a href="">Club Activities</a> |
+                <a href="">Student Marketplace</a>
+            </nav>
+        </main>
+    </header>
+    <hr>
+
+    <!-- Note Detail Section -->
+    <main class="container">
+        <h2>Note Details</h2>
+        <section class="note-container">
+            <h3 id="noteTitle"></h3>
+            <p class="meta" id="noteMeta"></p>
+
+            <div class="section">
+                <h4>Main Content</h4>
+                <p id="noteContent"></p>
+            </div>
+
+            <button class="back-button" onclick="window.history.back()">← Back</button>
+        </section>
+    </main>
+
+    <!-- the footer -->
+    <hr>
+    <footer>
+        <main class="container">
+            <h5>University Official Accounts</h5>
+            <a href="https://www.instagram.com/uobedubh/?hl=ar">
+                <img src="pictures/instanew.png" width="30px" height="30px">
+            </a>
+            <a href="https://www.facebook.com/MyUOB/">
+                <img src="pictures/facebook-new.png" width="30px" height="30px">
+            </a>
+            <a href="https://www.uob.edu.bh/">
+                <img src="pictures/webnew.png" width="30px" height="30px">
+            </a>
+            <h5>&copy; 2025 Campus Hub</h5>
+        </main>
+    </footer>
+
+    <!-- Note detail script -->
+    <script>
+        const note = JSON.parse(localStorage.getItem("selectedNote"));
+
+        if (note) {
+            document.getElementById("noteTitle").textContent = note.title;
+            document.getElementById("noteMeta").textContent = `Uploaded by ${note.author} on ${note.date}`;
+            document.getElementById("noteContent").textContent = note.summary || "No content available. Try Another!";
+        } else {
+            document.querySelector(".note-container").innerHTML = "<p style='color:red;'>No note found.</p>";
+        }
+    </script>
+</body>
+</html>
