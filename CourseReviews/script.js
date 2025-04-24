@@ -104,6 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const courseInput = document.getElementById("course");
     const yearInput = document.getElementById("year");
     const reviewInput = document.getElementById("review");
+    const authorInput = document.getElementById("author");
     const errorDisplay = document.getElementById("form-error");
 
     form.addEventListener("submit", (e) => {
@@ -111,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const course = courseInput.value.trim();
         const year = yearInput.value.trim();
         const review = reviewInput.value.trim();
-        const author = document.getElementById("author");
+        const author = authorInput.value.trim();
 
         errorDisplay.textContent = "";
         if (!course) {
@@ -147,12 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
         allReviews.push(newReview);
         renderPage(currentPage);  // Re-render the current page with the new review
 */
-        // Trigger confetti effect
-        confetti({
-            particleCount: 100,
-            spread: 70,
-            origin: { y: 0.6 }
-        });
 
         alert("Review submitted!");
     });
