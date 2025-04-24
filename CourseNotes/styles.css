@@ -1,3 +1,5 @@
+
+
 /* the general style */
 body {
     background-color: #E8DED1;
@@ -133,6 +135,25 @@ p {
 .grid article:hover {
     transform: translateY(-5px);
 }
+
+/* the click for more notes button */
+.load-more-card {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.controls {
+    display: flex; /* Align buttons in a row */
+    justify-content: space-between; /* Space them apart */
+    align-items: center; /* Vertically center the buttons */
+    width: 100%; /* Ensure the container takes full width */
+  }
+.pagination {
+    display: flex; /* Align pagination buttons horizontally */
+    gap: 10px; /* Space between buttons */
+  }
 
 /*  the buttons Styling */
 button {
