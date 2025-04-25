@@ -9,6 +9,7 @@
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="study-group-finder.js" defer></script>
     <link rel="icon" type="image/png" href="../Pictures/log.png">
   </head>
   <body>
@@ -46,6 +47,7 @@
             name="courseCode"
             placeholder="Enter Course Code (e.g., ITSE305 or PHYCS101)"
             maxlength="8"
+            autofocus 
           />
         </div>
         <!-- Filter by College -->
@@ -93,6 +95,7 @@
           <input class="btn" type="submit" value="Find Study Groups" />
         </div>
       </form>
+      
       <article id="NotFound">
         <p><strong>Can't find the right group? Why not create one?</strong></p>
         <a href="#createForm">
@@ -101,263 +104,25 @@
       </article>
       <hr />
 
-      <section>
-        <a name="AvailableList"></a>
-        <div class="results">
-          <h3>Available Groups:</h3>
-          <div class="group-listing">
-            <details>
-              <summary>
-                <p><strong>Course: ITSE305</strong></p>
-                <p><strong>Software Engineering Project</strong></p>
-              </summary>
-              <p><strong>College:</strong> Information Technology</p>
-              <p>
-                <strong>Description:</strong> Join a team focused on creating
-                real-world software solutions and gain hands-on experience with
-                collaborative development. Work on impactful projects that can
-                shape your career!
-              </p>
-              <p><strong>Created:</strong> April 15, 2025</p>
-              <div class="members-section">
-                <p><strong>Current Members (3):</strong></p>
-                <div class="member-list">
-                  <span class="member-badge">Zainab Ahmed</span>
-                  <span class="member-badge">Fatema Sayed</span>
-                  <span class="member-badge">Ali Redha</span>
-                </div>
-              </div>
-              <div class="controllers">
-              <button id="G1-Edit-btn" class="btn btn-secondary">
-                    Edit
-                  </button>
-               <button id="G1-join-btn" class="btn">Join</button>
-              <button id="G1-delete-btn" class="btn btn-danger">
-                    Delete
-                  </button>
-                <a href="#AvailableList"
-                  ><button id="G1-back-btn" class="btn btn-secondary">
-                    Back
-                  </button></a
-                >
-              </div>
-              <!-- Comments Section for Group 1 -->
-              <div class="comments-section">
-                <h3>Discussion</h3>
-                <article class="comment">
-                  <strong>Zainab Ahmed</strong> • <small>2 hours ago</small>
-                  <p>
-                    Would like to delete last commit, which Git command should I
-                    use? I
-                  </p>
-                </article>
+    
+  <section class="results"></section>
 
-                <article class="comment">
-                  <strong>Fatema Sayed</strong> • <small>30 minutes ago</small>
-                  <p>
-                    You can use <code>git reset --soft HEAD~1</code> to undo the
-                    commit but keep changes, or
-                    <code>git reset --hard HEAD~1</code> to completely remove
-                    it.
-                  </p>
-                </article>
-                <form>
-                  <label for="newComment1">Share your thoughts</label>
-                  <textarea
-                    id="newComment1"
-                    rows="3"
-                    placeholder="What would you like to discuss?"
-                  ></textarea>
-                  <button type="submit" class="btn">Post Comment</button>
-                </form>
-              </div>
-            </details>
-          </div>
-
-          <br />
-          <div class="group-listing">
-            <details>
-              <summary>
-                <p><strong>Course: ITCS347</strong></p>
-                <p><strong>Analysis and Algorithms</strong></p>
-              </summary>
-              <p><strong>College:</strong> Information Technology</p>
-              <p>
-                <strong>Description:</strong> Master the art of problem-solving
-                with fellow students. Explore algorithms, data structures, and
-                become a critical thinker in computer science!
-              </p>
-              <p><strong>Created:</strong> March 28, 2025</p>
-              <div class="members-section">
-                <p><strong>Current Members (3):</strong></p>
-                <div class="member-list">
-                  <span class="member-badge">Maryam Mansoor</span>
-                  <span class="member-badge">Zainab Al-Musawi </span>
-                  <span class="member-badge">Sayed Hadi Hasan</span>
-                  <span class="member-badge">Mohammed Jawad</span>
-                </div>
-              </div>
-              <div class="controllers">
-                <button id="G2-Edit-btn" class="btn btn-secondary">
-                  Edit
-                </button>
-             <button id="G2-join-btn" class="btn">Join</button>
-            <button id="G2-delete-btn" class="btn btn-danger">
-                  Delete
-                </button>
-              <a href="#AvailableList"
-                ><button id="G2-back-btn" class="btn btn-secondary">
-                  Back
-                </button></a
-              >
-              </div>
-              <!-- Comments Section for Group 2 -->
-              <div class="comments-section">
-                <h3>Discussion</h3>
-                  <article class="comment">
-                    <strong>Mohammed Jawad</strong> • <small>1 day ago</small>
-                    <p>
-                      Does this course cover probability topics like Discrete
-                      Mathematics II?
-                    </p>
-                  </article>
-                  <article class="comment">
-                    <strong>Zainab Al-Musawi</strong> • <small>1 day ago</small>
-                    <p>
-                      Not exactly. This course is more centered around analyzing
-                      and designing algorithms, so probability isn't a major
-                      focus.
-                    </p>
-                  </article>
-                  <article class="comment">
-                  <strong>Sayed Hadi Hasan</strong> • <small>3 hours ago</small>
-                  <p>
-                    In the expression <code>X = 3n + 4n + 5n</code>, the
-                    basic operation is multiplication. My question is, how many
-                    times does multiplication occur here—2 times or 3 times?
-                  </p>
-                </article>
-                <article class="comment">
-                  <strong>Zainab Al-Musawi </strong> • <small>1 hour ago</small>
-                  <p>
-                    Actually, it only occurs twice. That's because division and
-                    multiplication by powers of 2 are handled as bit shifting
-                    (either shifting left or right), not as actual
-                    multiplication operations.
-                  </p>
-                </article>
-                <form>
-                  <label for="newComment2">Share your thoughts</label>
-                  <textarea
-                    id="newComment2"
-                    rows="3"
-                    placeholder="What would you like to discuss?"
-                  ></textarea>
-                  <button type="submit" class="btn">Post Comment</button>
-                </form>
-              </div>
-            </details>
-          </div>
-          <br />
-          <div class="group-listing">
-            <details>
-              <summary>
-                <p><strong>Course: PHYCS101</strong></p>
-                <p><strong>General Physics I</strong></p>
-              </summary>
-              <p><strong>College:</strong> Science</p>
-              <p>
-                <strong>Description:</strong> A great group for those passionate
-                about the fundamental forces of nature. Work with others to
-                understand physics concepts and tackle complex problems!
-              </p>
-              <p><strong>Created:</strong> February 10, 2025</p>
-              <div class="members-section">
-                <p><strong>Current Members (5):</strong></p>
-                <div class="member-list">
-                  <span class="member-badge">Ebaa AlHussain</span>
-                  <span class="member-badge">Fatima Mohammed</span>
-                  <span class="member-badge">Jawad Alredha</span>
-                  <span class="member-badge">Alaa Mohammed</span>
-                  <span class="member-badge">Kawthar Ali</span>
-                </div>
-              </div>
-              <div class="controllers">
-                <button id="G3-Edit-btn" class="btn btn-secondary">
-                  Edit
-                </button>
-             <button id="G3-join-btn" class="btn">Join</button>
-            <button id="G3-delete-btn" class="btn btn-danger">
-                  Delete
-                </button>
-              <a href="#AvailableList"
-                ><button id="G3-back-btn" class="btn btn-secondary">
-                  Back
-                </button></a
-              >
-              </div>
-
-              <div class="comments-section">
-                <h3>Discussion</h3>
-                <article class="comment">
-                  <strong>Ebaa AlHussain</strong> • <small>1 day ago</small>
-                  <p>
-                    If I apply a force of +10 N to the right and friction acts
-                    with -10 N to the left, why are the signs important?
-                  </p>
-                </article>
-
-                <article class="comment">
-                  <strong>Alaa Mohammed</strong> • <small>1 day ago</small>
-                  <p>
-                    The signs indicate the direction of the forces. A positive
-                    sign means the force is applied in one direction (like to
-                    the right), and a negative sign means it's in the opposite
-                    direction (like to the left). The signs help us determine if
-                    the forces are working together or opposing each other. In
-                    this case, since the forces are equal but opposite, they
-                    cancel each other out.
-                  </p>
-                </article>
-
-                <article class="comment">
-                  <strong>Ebaa AlHussain</strong> • <small>1 day ago</small>
-                  <p>
-                    Ah, so the sign shows which way the force is acting. That
-                    makes sense! Thanks!
-                  </p>
-                </article>
-
-                <form>
-                  <label for="newComment3">Share your thoughts</label>
-                  <textarea
-                    id="newComment3"
-                    rows="3"
-                    placeholder="What would you like to discuss?"
-                  ></textarea>
-                  <button type="submit" class="btn">Post Comment</button>
-                </form>
-              </div>
-            </details>
-          </div>
-        </div>
 
         <!--Pagination Section-->
         <div class="pagination_section">
-          <a href=""><<</a>
-          <a href="">1</a>
-          <a href="">2</a>
-          <a href="">3</a>
-          <a href="">4</a>
-          <a href="">5</a>
-          <a href="">>></a>
+          <a><<</a>
+          <a>1</a>
+          <a>2</a>
+          <a>3</a>
+          <a>4</a>
+          <a>5</a>
+          <a>>></a>
         </div>
       </section>
-
-      <a name="createForm"></a>
+<br/>
       <!-- Create New Group Form -->
-      <h2>Create a New Study Group</h2>
       <form id="newGroupForm">
+        <h2>Create a New Study Group</h2>
         <!-- Course Code -->
         <div class="input-group">
           <label for="newCourseCode">Course Code</label>
@@ -444,7 +209,7 @@
           <div class="input-group">
             <label for="creationDate">Creation Date</label>
             <input
-              type="datetime"
+              type="datetime-local"
               id="creationDate"
               name="creationDate"
               readonly
@@ -452,13 +217,102 @@
           </div>
         </div>
 
-        <!-- Submit Button -->
         <div class="form-actions">
           <button type="submit" class="btn">Create Study Group</button>
           <button type="button" class="btn btn-secondary">Cancel</button>
         </div>
       </form>
     </main>
+
+<!-- Confirmation Modal -->
+<dialog id="cancelConfirmationModal">
+  <article>
+    <h3>Confirm Cancellation</h3>
+    <p>Are you sure you want to cancel creating this group? Any changes you’ve made will be lost.</p>
+    <footer>
+      <button id="confirmCancel" class="btn btn-danger">Yes, Cancel</button>
+      <button id="denyCancel" class="btn btn-secondary">No, Continue Editing</button>
+    </footer>
+  </article>
+</dialog>
+
+<!-- No Results Modal -->
+<dialog id="noResultsDialog">
+  <article>
+    <h3>Oops</h3>
+    <p>No study groups found matching your criteria.</p>
+    <p>Try adjusting your filters or create a new group.</p>
+    <footer>
+        <button id="create-btnI" class="btn">Create a New Group</button>
+      <button id="closeNoResults" class="btn btn-secondary">Close</button>
+    </footer>
+  </article>
+</dialog>
+
+<!-- Action Confirmation Dialog -->
+<dialog id="actionDialog" aria-labelledby="actionDialogTitle">
+  <article>
+    <h3 id="actionDialogTitle">Confirm Action</h3>
+    <p id="actionDialogMessage">Are you sure you want to perform this action?</p>
+    <footer>
+      <button id="actionDialogConfirm" class="btn">Confirm</button>
+      <button id="actionDialogCancel" class="btn btn-secondary">Cancel</button>
+    </footer>
+  </article>
+</dialog>
+
+<!-- Edit Group Dialog -->
+<dialog id="editDialog" aria-labelledby="editDialogTitle">
+  <article>
+    <h3 id="editDialogTitle">Edit Study Group</h3>
+    <form id="editGroupForm">
+      <div class="input-group">
+        <label for="editCourseCode">Course Code</label>
+        <input type="text" id="editCourseCode" required>
+      </div>
+      <div class="input-group">
+        <label for="editGroupName">Group Name</label>
+        <input type="text" id="editGroupName" required>
+      </div>
+      <div class="input-group">
+        <label for="editDescription">Description</label>
+        <textarea id="editDescription" rows="4"></textarea>
+      </div>
+      <div class="input-group">
+        <label for="editCollege">College</label>
+        <select id="editCollege" required>
+          <option value="">Select College</option>
+            <option value="information-technology">
+              College of Information Technology
+            </option>
+            <option value="arts">College of Arts</option>
+            <option value="law">College of Law</option>
+            <option value="engineering">College of Engineering</option>
+            <option value="physical-education">
+              College of Physical Education
+            </option>
+            <option value="health-sport-sciences">
+              College of Health and Sport Sciences
+            </option>
+            <option value="languages-institute">Languages Institute</option>
+            <option value="applied-studies">College of Applied Studies</option>
+            <option value="science">College of Science</option>
+            <option value="business-administration">
+              College of Business Administration
+            </option>
+        </select>
+      </div>
+      <footer>
+        <button type="submit" class="btn">Save Changes</button>
+        <button type="button" id="editDialogCancel" class="btn btn-secondary">Cancel</button>
+      </footer>
+    </form>
+  </article>
+</dialog>
+
+<!-- Success Toast Notification -->
+<div id="toast" class="toast-notification" aria-live="polite"></div>
+
 
     <!-- Footer code -->
     <hr />
