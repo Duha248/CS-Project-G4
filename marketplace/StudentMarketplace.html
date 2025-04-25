@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marketplace</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="StudentMarketplace.js"></script>
 </head>
 <body>
     <header>
         <main class="container">
        <h1>
-            <a href="../index.html"> 
+            <a href=""> 
                 <img src="log.png" alt="Image" height="100px" width="100px"> 
             </a>
         Campus Hub</h1>
         
         <nav>
-            <a href="../index.html">Main Page</a> |
-            <a href="../study-group-finder/study-group-finder.html">Group Finder</a> |
-            <a href="../CourseReviews/CourseReviews.html">Course Reviews</a> |
-            <a href="../CourseNotes/courseNotes.html">Course Notes</a> |
-            <a href="../CampusNews/CampusNews.html">Campus News</a> |
-            <a href="../club-activities/ClubActivities.html">Club Activities</a> |
-            <a href="../marketplace/StudentMarketplace.html">Student Marketplace</a> 
+            <a href="index.html">Main Page</a> |
+            <a href="GroupFinder.html">Group Finder</a> |
+            <a href="CourseReviews.html">Course Reviews</a> |
+            <a href="CourseNotes.html">Course Notes</a> |
+            <a href="ClubActivities.html">Campus News</a> |
+            <a href="CampusNews.html">Club Activities</a> |
+            <a href="Marketplace.html">Student Marketplace</a> 
         </nav>
         </main>
     </header>
@@ -36,12 +37,12 @@
     <form>
         <div class="form-item">
             <label for="item">Item</label>
-            <input type="text" placeholder="search for an item" />
+            <input type="text" id="item-search" placeholder="search for an item" />
         </div>
 
         <div class="form-item">
             <label for="item">Filter by Condition</label>
-            <select id="item">
+            <select id="item-condition-filter">
                 <option value="">select Condition</option>
                 <option value="new">new</option>
                 <option value="used">used</option>
@@ -57,7 +58,7 @@
             </select>
         </div>
 
-        <button type="submit" class="submit-button">Find Item</button>
+        <button type="submit" id="find-item-btn" class="submit-button">Find Item</button>
     </form>
 </section>
         <section class="items-list" id="items-list">
@@ -99,7 +100,7 @@
                     <label for="item-contact">Contact Number</label>
                     <input type="tel" id="item-contact" required />
                 </div>
-                <button type="submit" class="submit-button animated-button">Add Item</button>
+                <button type="submit" id="find-item-btn" class="submit-button animated-button">Add Item</button>
             </form>
         </section>
     </main>
