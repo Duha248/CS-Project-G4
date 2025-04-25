@@ -67,6 +67,19 @@ form {
     margin-bottom: 30px;
 }
 
+#newGroupForm {
+    display: none; 
+  }
+  
+  #newGroupForm.show {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
 .input-group {
     margin-bottom: 20px;
     position: relative;
@@ -109,6 +122,24 @@ input[readonly] {
     border-radius: 8px;
     border-left: 4px solid #C8AD7E;
 }
+.toast-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #A0816C;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .toast-notification.show {
+    opacity: 1;
+  }
 /* Button Styles */
 .btn {
     background-color: #C8AD7E;
@@ -278,7 +309,37 @@ details p {
     background-color: #A0816C;
     transform: translateY(-2px);
 }
-/* Footer Section */
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+/* Modal styles */
+dialog article {
+    margin: 20px;
+    border-left: 4px solid #C8AD7E;
+    border-radius: 0.5rem;
+    width: 80%;
+    max-width: 400px;
+    color: #5a5a5a;
+    animation: scaleIn 0.2s ease-out forwards;
+}
+
+#editDialog article {
+    max-width: 750px; 
+  }
+
+  dialog footer {
+    background-color: white;;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+
+    /* Footer Section */
 footer {
     background-color: #C8AD7E;
     color: white;
