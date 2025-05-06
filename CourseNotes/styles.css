@@ -66,6 +66,8 @@ p {
     background: #E8DED1;
     padding: 10px;
     border-radius: 5px;
+    max-width: 850px;
+
 }
 
 /*  filters Styling */
