@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
-    const API_URL = "https://68063119ca467c15be6b85c3.mockapi.io/reviews";
+    const API_URL ="https://c879bd0d-6fe4-4890-88d5-aa3c0a039fff-00-1f7uarqcuicd5.pike.replit.dev/check.php" ;
     const resultsContainer = document.querySelector(".results");
     const pagination = document.querySelector(".pagination_section");
     const searchInput = document.querySelector("input[type='text']");
@@ -9,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentPage = 1;
     let allReviews = [];
 
-    // ========== Fetching & Rendering ==========
+    // fetch and render method
     const showLoading = () => {
         resultsContainer.innerHTML = "<p>Loading reviews...</p>";
     };
@@ -30,6 +29,56 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    // delete review method
+    resultsContainer.addEventListener("click", async (e) => {
+        if (e.target.classList.contains("delete-btn")) {
+            const reviewId = e.target.getAttribute("data-id");
+            if (!confirm("Are you sure you want to delete this review?")) return;
+
+            try {
+                const res = await fetch(`${API_URL}?id=${reviewId}`, {
+                    method: "DELETE"
+                });
+
+                if (!res.ok) throw new Error("Failed to delete review.");
+                allReviews = allReviews.filter(r => r.id != reviewId);
+                alert("Review deleted successfully.");
+                renderPage(currentPage);
+            } catch (err) {
+                alert("Error: " + err.message);
+            }
+        }
+    });
+    // add  new comment method
+    resultsContainer.addEventListener("click", async (e) => {
+        if (e.target.classList.contains("comment-btn")) {
+            const reviewId = e.target.getAttribute("data-id");
+            const input = e.target.previousElementSibling;
+            const commentText = input.value.trim();
+            if (!commentText) {
+                alert("Comment cannot be empty.");
+                return;
+            }
+    
+            try {
+                const res = await fetch(API_URL, {
+                    method: "PATCH",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ id: reviewId, comment: commentText })
+                });
+    
+                if (!res.ok) throw new Error("Failed to add comment.");
+    
+                input.value = ""; 
+                alert("Comment added.");
+                fetchReviews();
+            } catch (err) {
+                alert("Error: " + err.message);
+            }
+        }
+    });
+    
+    // filter and sort method (based on user selection- filter by course, sort by date)
     const getFilteredSortedData = () => {
         let filtered = [...allReviews];
         const searchQuery = searchInput.value.toLowerCase();
@@ -37,10 +86,14 @@ document.addEventListener("DOMContentLoaded", () => {
             filtered = filtered.filter(r => r.course.toLowerCase().includes(searchQuery));
         }
         const sortValue = sortSelect.value;
-        filtered.sort((a, b) => sortValue === "1"
-            ? a.year.localeCompare(b.year)
-            : b.year.localeCompare(a.year)
-        );
+        filtered.sort((a, b) => {
+            const yearA = a.year || "";
+            const yearB = b.year || "";
+            return sortValue === "1"
+                ? yearA.localeCompare(yearB)
+                : yearB.localeCompare(yearA);
+        });
+
         return filtered;
     };
 
@@ -48,14 +101,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = getFilteredSortedData();
         const start = (page - 1) * itemsPerPage;
         const paginated = data.slice(start, start + itemsPerPage);
-
+    
         resultsContainer.innerHTML = "<h3>Reviews:</h3><br>";
         if (!paginated.length) {
             resultsContainer.innerHTML += "<p>No matching reviews.</p>";
             return;
         }
-
+    //displaying review and pagination (based on reviews count, each pagination page has 3 reviews records)
         paginated.forEach(r => {
+            const commentsHTML = Array.isArray(r.comments) ? 
+            r.comments.map(c => `<li>${c}</li>`).join("")
+            : "";
+
+        
             resultsContainer.innerHTML += `
                 <details>
                     <summary>
@@ -64,32 +122,32 @@ document.addEventListener("DOMContentLoaded", () => {
                     </summary>
                     <p><strong>Author:</strong> ${r.author}</p>
                     <p><strong>Review:</strong> ${r.review}</p>
+                    <div class="comment-section">
+                        <h5>Comments:</h5>
+                        <ul class="comment-list">${commentsHTML}</ul>
+                        <input type="text" class="comment-input" placeholder="Add a comment...">
+                        <button class="comment-btn" data-id="${r.id}">Add comment</button>
+                    </div>
+                    <button class="delete-btn" data-id="${r.id}">Delete review</button>
                 </details><br>
             `;
         });
-
         renderPagination(data.length);
     };
-
+    //display pagination
     const renderPagination = (totalItems) => {
         const totalPages = Math.ceil(totalItems / itemsPerPage);
         pagination.innerHTML = "";
 
-        // "Previous" button
         if (currentPage > 1) {
             pagination.innerHTML += `<a href="#" data-page="${currentPage - 1}"><<</a> `;
         }
-
-        // Page links
         for (let i = 1; i <= totalPages; i++) {
             pagination.innerHTML += `<a href="#" data-page="${i}">${i}</a> `;
         }
-
-        // "Next" button
         if (currentPage < totalPages) {
             pagination.innerHTML += `<a href="#" data-page="${currentPage + 1}">>></a>`;
         }
-
         document.querySelectorAll(".pagination_section a").forEach(a => {
             a.addEventListener("click", (e) => {
                 e.preventDefault();
@@ -99,69 +157,57 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // ========== Form Validation and Adding Review ==========
+    // form validation (does not accept any empty fields)
     const form = document.getElementById("addReview");
-    const courseInput = document.getElementById("course");
-    const yearInput = document.getElementById("year");
-    const reviewInput = document.getElementById("review");
-    const authorInput = document.getElementById("author");
     const errorDisplay = document.getElementById("form-error");
 
-    form.addEventListener("submit", (e) => {
+
+    form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        const course = courseInput.value.trim();
-        const year = yearInput.value.trim();
-        const review = reviewInput.value.trim();
-        const author = authorInput.value.trim();
-
+        const course = document.getElementById("course").value.trim();
+        const year = document.getElementById("year").value.trim();
+        const review = document.getElementById("review").value.trim();
+        const author = document.getElementById("author").value.trim();
+    
         errorDisplay.textContent = "";
-        if (!course) {
-            errorDisplay.textContent = "Please enter a course.";
+        if (!course || !year || !review || !author) {
+            errorDisplay.textContent = "All fields are required.";
             return;
         }
-
-        if (!year) {
-            errorDisplay.textContent = "Please enter a year.";
-            return;
+    
+        const newReview = { course: course, year: year, review: review, author: author, comments: [] };
+    
+        try {
+            const res = await fetch(API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(newReview)
+            });
+            console.log(res);
+            if (!res.ok) throw new Error("Failed to add review.");
+            
+            const addedReview = await res.json();
+           await fetchReviews();
+            alert("Review added successfully!");
+            form.reset();
+            console.log("before rendre");// used to debug
+            renderPage(currentPage); 
+            console.log("after rendering"); // used to debug
+        } catch (err) {
+            errorDisplay.textContent = "Error adding review: " + err.message;
         }
-
-        if (!review) {
-            errorDisplay.textContent = "Please enter your review.";
-            return;
-        }
-
-        if (!author) {
-            errorDisplay.textContent = "Please enter your name.";
-            return;
-        }
-/*
-        // After the form passes validation, you can add the review to the mockAPI
-        const newReview = {
-            course,
-            year,
-            review,
-            author: author.value,
-            id: allReviews.length + 1  // Assuming ID will be auto-generated on the API
-        };
-
-        // This simulates adding the review to your backend (mock API)
-        allReviews.push(newReview);
-        renderPage(currentPage);  // Re-render the current page with the new review
-*/
-
-        alert("Review submitted!");
     });
+    
 
-    // ========== Event Listeners ==========
+    // activate event listeners
     searchInput.addEventListener("input", () => {
-        currentPage = 1;  // Reset to page 1 whenever search input changes
+        currentPage = 1;  
         renderPage(currentPage);
     });
 
     sortSelect.addEventListener("change", () => {
-        currentPage = 1;  // Reset to page 1 whenever sorting changes
+        currentPage = 1;  
         renderPage(currentPage);
     });
-
-    fetchReviews(); // initial fetch
+    fetchReviews(); 
 });
