@@ -8,41 +8,31 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentPage = 1;
     let allNews = [];
 
-    // Fetch news from DB with error handling
+    // A method to fetch the data from the database and if any error occurs while fetching the data, it will show it:
     const fetchNews = async () => {
         try {
-            newsContainer.innerHTML = `<p style="color: #555;">🔄 Loading news, please wait...</p>`;
+            newsContainer.innerHTML = `<p>Just a moment, getting the news...</p>`;
             const response = await fetch(DB_URL);
-            if (!response.ok) throw new Error(`Server responded with status ${response.status}`);
-            const json = await response.json();
-
-            if (!Array.isArray(json)) {
-                throw new Error("Data format error: Expected an array.");
-            }
-
-            allNews = json;
-            if (allNews.length === 0) {
-                newsContainer.innerHTML = `<p>No news available at the moment.</p>`;
-            } else {
-                renderPage(currentPage);
-            }
-
+            if (!response.ok) throw new Error("Failed to fetch data.");
+            allNews = await response.json();
+            renderPage(currentPage);
         } catch (err) {
-            console.error("Fetch error:", err);
-            newsContainer.innerHTML = `<p style="color: #BF4C4C;"><strong>Error loading news:</strong> ${err.message}</p>`;
+            newsContainer.innerHTML = `<p style="color:#BF4C4C;">${err.message}</p>`;
         }
     };
 
-    // Delete a news post
+    // A method to delete a new post from the database and update the page:
     newsContainer.addEventListener("click", async (e) => {
         if (e.target.classList.contains("delete-btn")) {
             const newID = e.target.getAttribute("data-id");
             if (!confirm("Would you like to delete this new article?")) return;
             try {
-                const res = await fetch(`${DB_URL}?id=${newID}`, { method: "DELETE" });
-                if (!res.ok) throw new Error("Unable to delete the news.");
+                const res = await fetch(`${DB_URL}?id=${newID}`, {
+                    method: "DELETE"
+                });
+                if (!res.ok) throw new Error("Unable to delete the new.");
                 allNews = allNews.filter(r => r.id != newID);
-                alert("Successfully deleted the news post.");
+                alert("Successfully deleted the new post.");
                 renderPage(currentPage);
             } catch (err) {
                 alert("Error: " + err.message);
@@ -50,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Add comment to a news post
+    // A method to add comments on a new post and save them in the database:
     newsContainer.addEventListener("click", async (e) => {
         if (e.target.classList.contains("comment-btn")) {
             const newID = e.target.getAttribute("data-id");
@@ -67,16 +57,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     body: JSON.stringify({ id: newID, comment: commentText })
                 });
                 if (!res.ok) throw new Error("Error while adding the comment.");
-                input.value = "";
+                input.value = ""; 
                 alert("Comment posted successfully.");
-                fetchNews();
+                fetchNews(); 
             } catch (err) {
                 alert("Error: " + err.message);
             }
         }
     });
 
-    // Filter and sort data
+    // Sorting the news based on the user's selection either new to old OR old to new:
     const getSortedData = () => {
         let filtered = [...allNews];
         const searchQuery = searchInput.value.toLowerCase();
@@ -90,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return filtered;
     };
 
-    // Render page with pagination
+    // Getting the sorted data and rendering the page, handling the pagination, and displaying a message when there is no data matching the search query:
     const renderPage = (page) => {
         const data = getSortedData();
         const start = (page - 1) * numberOfItemsPerPage;
@@ -102,10 +92,9 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        // Showing the news items:
         paginated.forEach(r => {
-            const commentsHTML = Array.isArray(r.comments)
-                ? r.comments.map(c => `<li>${c}</li>`).join("")
-                : "";
+            const commentsHTML = Array.isArray(r.comments) ? r.comments.map(c => `<li>${c}</li>`).join(""): "";        
             newsContainer.innerHTML += `
                 <details>
                     <summary>
@@ -128,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
         renderPagination(data.length);
     };
 
-    // Render pagination controls
+    // Rendering pagination and handling the pagination buttons:
     const renderPagination = (totalItems) => {
         const totalPages = Math.ceil(totalItems / numberOfItemsPerPage);
         pagination.innerHTML = "";
@@ -150,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // Handle form submission
+    // Validating the form and ensuring the user can't submit the form without filling in the required fields:
     const form = document.getElementById("addNews");
     const errorDisplay = document.getElementById("form-error");
     form.addEventListener("submit", async (e) => {
@@ -165,23 +154,17 @@ document.addEventListener("DOMContentLoaded", () => {
             errorDisplay.textContent = "Please ensure all fields are filled.";
             return;
         }
-        const newNews = {
-            Title: title,
-            College: college,
-            Date: year,
-            Author: author,
-            News: description,
-            comments: []
-        };
+        const newNews = { Title: title, College: college, Date: year, Author: author, News: description, comments: [] };
         try {
             const res = await fetch(DB_URL, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(newNews)
             });
-            if (!res.ok) throw new Error("Unable to add news.");
-            await fetchNews();
-            alert("The news has been successfully posted!");
+            if (!res.ok) throw new Error("Unable to add new.");
+            const addedNews = await res.json();
+            await fetchNews(); 
+            alert("The new has been successfully posted!");
             form.reset();
             renderPage(currentPage);
         } catch (err) {
@@ -189,7 +172,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Events: search and sort
     searchInput.addEventListener("input", () => {
         currentPage = 1;
         renderPage(currentPage);
@@ -200,6 +182,5 @@ document.addEventListener("DOMContentLoaded", () => {
         renderPage(currentPage);
     });
 
-    // Initial fetch
     fetchNews();
 });
