@@ -1,10 +1,10 @@
-/* General Styles */
+/* General Style For The Body: */
 body {
     font-family: Arial, sans-serif;
-    background-color: #E8DED1; 
+    background-color: #E8DED1;
     margin: 0;
     padding: 0;
-    color: #A0816C; 
+    color: #A0816C;
 }
 
 .container {
@@ -13,10 +13,10 @@ body {
     padding: 20px;
 }
 
-/* Header */
+/* Styling The Header: */
 header {
-    background-color: #C8AD7E; 
-    color: #FFFFFF; 
+    background-color: #C8AD7E;
+    color: #FFFFFF;
     padding: 15px 0;
     text-align: center;
 }
@@ -39,7 +39,7 @@ nav {
 }
 
 nav a {
-    color: #FFFFFF; 
+    color: #FFFFFF;
     text-decoration: none;
     font-weight: bold;
 }
@@ -48,7 +48,6 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Search and Filter */
 .search-filter {
     display: flex;
     flex-wrap: wrap;
@@ -57,27 +56,28 @@ nav a:hover {
     justify-content: center;
 }
 
-.search-filter input, .search-filter select, .search-filter button {
+.search-filter input,
+.search-filter select,
+.search-filter button {
     padding: 8px;
-    border: 1px solid #BFAB8C; 
+    border: 1px solid #BFAB8C;
     border-radius: 5px;
 }
 
 .search-filter button {
-    background-color: #BFAB8C; 
-    color: #FFFFFF; 
+    background-color: #BFAB8C;
+    color: #FFFFFF;
     border: none;
     cursor: pointer;
 }
 
 .search-filter button:hover {
-    background-color: #C8AD7E; 
-    color: #FFFFFF; 
+    background-color: #C8AD7E;
 }
 
-/* News Section */
+/* Styling The News Section: */
 .news {
-    background-color: white; 
+    background-color: white;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -93,12 +93,78 @@ details {
 
 .news h2 {
     text-align: center;
-    color: #A0816C; 
+    color: #A0816C;
 }
 
-/* Form Styling */
+/* Styling The Comment Section: */
+.comment-section {
+    margin-top: 15px;
+    background: #F6F1E7;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.comment-section h4 {
+    margin-top: 0;
+    color: #A0816C;
+}
+
+.comment-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.comment-list li {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFF;
+    padding: 5px 10px;
+    margin: 5px 0;
+    border: 1px solid #BFAB8C;
+    border-radius: 5px;
+}
+
+.comment-input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #BFAB8C;
+    border-radius: 5px;
+}
+
+.add-comment-btn {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #A0816C;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-comment-btn:hover {
+    background-color: #C8AD7E;
+}
+
+/* Styling The Delete Button: */
+.delete-btn {
+    background-color: #BF4C4C !important;
+    color: #FFFFFF !important;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.delete-btn:hover {
+    background-color: #A94444 !important;
+}
+
+/* Styling The Form: */
 form {
-    background: white; 
+    background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -111,12 +177,13 @@ form label {
     font-weight: bold;
 }
 
-form input, form textarea, form button {
-    display: block;
+form input,
+form textarea,
+form button {
     width: 100%;
     padding: 8px;
     border-radius: 5px;
-    border: 1px solid #BFAB8C; 
+    border: 1px solid #BFAB8C;
 }
 
 form textarea {
@@ -125,8 +192,8 @@ form textarea {
 }
 
 form button {
-    background-color: #A0816C; 
-    color: #FFFFFF; 
+    background-color: #A0816C;
+    color: #FFFFFF;
     border: none;
     cursor: pointer;
     padding: 10px 15px;
@@ -134,17 +201,10 @@ form button {
 }
 
 form button:hover {
-    background-color: #C8AD7E; 
+    background-color: #C8AD7E;
 }
 
-/* Form Buttons */
-.form-buttons {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-start;
-}
-
-/* Pagination */
+/* Styling The Pagination: */
 .pagination {
     text-align: center;
     margin-top: 20px;
@@ -154,20 +214,20 @@ form button:hover {
     padding: 8px 12px;
     margin: 5px;
     text-decoration: none;
-    background: #C8AD7E; 
-    color: #FFFFFF; 
+    background: #C8AD7E;
+    color: #FFFFFF;
     border-radius: 5px;
     display: inline-block;
 }
 
 .pagination a:hover {
-    background: #A0816C; 
+    background: #A0816C;
 }
 
-/* Footer */
+/* Styling The Footer: */
 footer {
-    background-color: #C8AD7E; 
-    color: #FFFFFF; 
+    background-color: #C8AD7E;
+    color: #FFFFFF;
     text-align: center;
     padding: 10px 0;
     margin-top: 20px;
