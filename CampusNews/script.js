@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentPage = 1;
     let allNews = [];
 
-    // A method to fetch the data from the database and if any error occurs while fetching the data, it will show it:
+    //A method to fetch the data from the database and if any error occur while fetching the data, it will show it:
     const fetchNews = async () => {
         try {
             newsContainer.innerHTML = `<p>Just a moment, getting the news...</p>`;
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // A method to delete a new post from the database and update the page:
+    //A method to delete a new post from the database and update the page:
     newsContainer.addEventListener("click", async (e) => {
         if (e.target.classList.contains("delete-btn")) {
             const newID = e.target.getAttribute("data-id");
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // A method to add comments on a new post and save them in the database:
+    //A method to add comments on a new post and save them in the database:
     newsContainer.addEventListener("click", async (e) => {
         if (e.target.classList.contains("comment-btn")) {
             const newID = e.target.getAttribute("data-id");
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Sorting the news based on the user's selection either new to old OR old to new:
+    //Sorting the new based on the user's selection either new to old OR old to new:
     const getSortedData = () => {
         let filtered = [...allNews];
         const searchQuery = searchInput.value.toLowerCase();
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return filtered;
     };
 
-    // Getting the sorted data and rendering the page, handling the pagination, and displaying a message when there is no data matching the search query:
+    //Getting the sorted data and rendering the page, hadling the pagination, and displaying a messages when there is no data match the search query:
     const renderPage = (page) => {
         const data = getSortedData();
         const start = (page - 1) * numberOfItemsPerPage;
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Showing the news items:
+        //Showing the news items:
         paginated.forEach(r => {
             const commentsHTML = Array.isArray(r.comments) ? r.comments.map(c => `<li>${c}</li>`).join(""): "";        
             newsContainer.innerHTML += `
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
         renderPagination(data.length);
     };
 
-    // Rendering pagination and handling the pagination buttons:
+    //Rendering pagination and handling the pagination buttons:
     const renderPagination = (totalItems) => {
         const totalPages = Math.ceil(totalItems / numberOfItemsPerPage);
         pagination.innerHTML = "";
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // Validating the form and ensuring the user can't submit the form without filling in the required fields:
+    //Validating the form and ensuring the user can't submit the form without filling in the required fields:
     const form = document.getElementById("addNews");
     const errorDisplay = document.getElementById("form-error");
     form.addEventListener("submit", async (e) => {
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
             errorDisplay.textContent = "There was an issue adding the news: " + err.message;
         }
     });
-
+    
     searchInput.addEventListener("input", () => {
         currentPage = 1;
         renderPage(currentPage);
