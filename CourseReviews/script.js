@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const API_URL ="https://c879bd0d-6fe4-4890-88d5-aa3c0a039fff-00-1f7uarqcuicd5.pike.replit.dev/check.php" ;
+    const API_URL ="https://c879bd0d-6fe4-4890-88d5-aa3c0a039fff-00-1f7uarqcuicd5.pike.replit.dev/main.php" ;
     const resultsContainer = document.querySelector(".results");
     const pagination = document.querySelector(".pagination_section");
     const searchInput = document.querySelector("input[type='text']");
