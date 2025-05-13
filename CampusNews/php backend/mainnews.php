@@ -72,7 +72,7 @@ try {
             ]
         ]);
     }  
-    
+
     // Handling delete request
     elseif ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
             parse_str($_SERVER['QUERY_STRING'], $queryParams);
@@ -91,7 +91,7 @@ try {
                 echo json_encode(["success" => true, "message" => "News deleted successfully."]);
             }
         } 
-        
+
         // Handling comment and content validation
         elseif ($_SERVER['REQUEST_METHOD'] === 'PATCH') {
         $data = json_decode(file_get_contents("php://input"), true);
