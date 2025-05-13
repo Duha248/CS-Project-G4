@@ -5,24 +5,25 @@
         <meta charset="UTF-8">
         <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
         <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
 
     </head>
 
     <header>
         <main class="container">
         <h1>
-            <a href=""> 
+            <a href="../index.html"> 
                 <img src="log.png" alt="Image" height="100px" width="100px"> 
             </a>
         Campus Hub</h1>
         <nav> 
-            <a href="">Main Page</a> |
-            <a href="">Group Finder</a> |
-            <a href="">Course Reviews</a> |
-            <a href="">Course Notes</a> |
-            <a href="">Campus News</a> |
-            <a href="">Club Activities</a> |
-            <a href="">Student Marketplace</a> 
+            <a href="../index.html">Main Page</a> |
+            <a href="../study-group-finder/study-group-finder.html">Group Finder</a> |
+            <a href="../CourseReviews/CourseReviews.html">Course Reviews</a> |
+            <a href="../CourseNotes/courseNotes.html">Course Notes</a> |
+            <a href="../CampusNews/CampusNews.html">Campus News</a> |
+            <a href="../club-activities/ClubActivities.html">Club Activities</a> |
+            <a href="../marketplace/StudentMarketplace.html">Student Marketplace</a> 
         </nav>
         </main>
     </header>
@@ -32,10 +33,11 @@
     <body>
         <main class="container">
 
+
         <section>
         <h2>Course Reviews</h2>
         <p class="intro">Display students reviews about courses, and share your own easily!</p>
-        <input type="text" placeholder="Search by course, ex. ITCY354, etc..." size="60"> 
+        <input type="text" id="selectedCourse" placeholder="Search by course, ex. ITCY354, etc..." size="60"> 
         <input type="button" value="Filter" >
         <select class="sorting" name="sort">
             <option value="1">Old To New</option>
@@ -132,21 +134,21 @@
         <br>
 
         <h3> Add Review</h3>
-        <form>
+        <form id="addReview">
             <label for="course">Course:</label>
-            <input type="text" id="course" placeholder="Course Code" size="50" required> 
+            <input type="text" id="course" placeholder="Course Code" size="50" > 
             <br>
             <label for="year">Year:</label>
-            <input type="text" id="year" placeholder="Year taking the course" size="50" required> 
+            <input type="text" id="year" placeholder="Year taking the course" size="50" > 
             <br>
             <label for="review">Review:</label>
-            <input type="text" id="review" placeholder="Add your review" size="50" required> 
+            <input type="text" id="review" placeholder="Add your review" size="50" > 
             <br>
             <label for="author">Author:</label>
-            <input type="radio" id="author" name="a" id="p" value="name">public
-            <input type="radio" name="a" id="a" value="anonymous">anonymous
+            <input type="text" id="author" placeholder="Add your name" > 
             <br>
             <input type="submit" value="Add">
+            <p id="form-error" style="color:red;">Error message</p>
             <br>
         </form>
             
@@ -171,5 +173,4 @@
         <h5>&copy; 2025 Campus Hub</h5>
     </main>
     </footer>
-
 </html>

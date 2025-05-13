@@ -1,5 +1,4 @@
 /* Global style for body */
-
 body {
     background-color: #E8DED1;
     font-family: Arial ,sans-serif;
@@ -18,7 +17,7 @@ body {
 header {
     background-color: #C8AD7E;
     color: white;
-    padding: 15px 0;
+    padding: 10px 0;
     text-align: center;
 }
 
@@ -26,15 +25,14 @@ header h1 {
     color: white;
     display: flex;
     justify-content: left;
-    align-items: center;
+    align-items: left;
     gap: 0 10px;
 }
 
 nav {
-    text-align: center;
     display: flex;
     justify-content: center;
-    gap: 3px;
+    gap: 15px;
     margin-top: 10px;
 }
 
@@ -61,14 +59,31 @@ details {
     background: #E8DED1;
     padding: 10px;
     border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
 
 summary {
     font-weight: bold;
     cursor: pointer;
 }
+.search-filter{
+    background: #f1ece5; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
 
-/* Search Form Styling */
+#submit-button {
+    padding: 8px 15px;
+    background-color:#C8AD7E;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Form Styling */
 form {
     background: #f1ece5; 
     padding: 20px;
@@ -103,6 +118,12 @@ input[type="button"]:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
+.info {
+    background: #f1ece5;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
 .paginationing {
     text-align: center;
     margin-top: 20px;
@@ -155,7 +176,7 @@ footer h5{
 }
 
 footer a img {
-    margin: 10px;
+    margin: 0 10px;
     transition: transform 0.2s;
 }
 

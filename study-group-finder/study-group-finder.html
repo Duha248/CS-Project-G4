@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Study Group Finder</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="study-group-finder.js" defer></script>
+    <link rel="icon" type="image/png" href="../Pictures/log.png">
+  </head>
+  <body>
+    <header>
+        <main class="container">
+       <h1>
+            <a href="../index.html"> 
+                <img src="../Pictures/log.png" alt="logo" height="100px" width="100px"> 
+            </a>
+        Campus Hub</h1>
+        <nav>
+          <a href="../index.html">Main Page</a> |
+          <a href="study-group-finder.html">Group Finder</a> |
+          <a href="../CourseReviews/CourseReviews.html">Course Reviews</a> |
+          <a href="../CourseNotes/courseNotes.html">Course Notes</a> |
+          <a href="../CampusNews/CampusNews.html">Campus News</a> |
+          <a href="../club-activities/ClubActivities.html">Club Activities</a> |
+          <a href="../marketplace/StudentMarketplace.html">Student Marketplace</a> 
+      </nav>
+        </main>
+    </header>
+    <hr>
+
+    <main class="container">
+      <h1>Study Group Finder</h1>
+      <h4>Easily find and join study groups for all your courses.</h4>
+
+      <form id="searchForm">
+        <!-- Search by Course Code -->
+        <div id="searchByCode" class="input-group">
+          <label for="courseCode">Course Code</label>
+          <input
+            type="text"
+            id="courseCode"
+            name="courseCode"
+            placeholder="Enter Course Code (e.g., ITSE305 or PHYCS101)"
+            maxlength="8"
+            autofocus 
+          />
+        </div>
+        <!-- Filter by College -->
+        <div id="college-option" class="input-group hidden">
+          <label for="college">Filter by College</label>
+          <select id="college" name="college" >
+            <option value="">Select College</option>
+            <option value="information-technology">
+              College of Information Technology
+            </option>
+            <option value="arts">College of Arts</option>
+            <option value="law">College of Law</option>
+            <option value="engineering">College of Engineering</option>
+            <option value="physical-education">
+              College of Physical Education
+            </option>
+            <option value="health-sport-sciences">
+              College of Health and Sport Sciences
+            </option>
+            <option value="languages-institute">Languages Institute</option>
+            <option value="applied-studies">College of Applied Studies</option>
+            <option value="science">College of Science</option>
+            <option value="business-administration">
+              College of Business Administration
+            </option>
+          </select>
+        </div>
+
+        <!-- Sort Groups By -->
+        <div id="sort-option" class="input-group">
+          <label for="sortSelect">Sort Groups By</label>
+          <select id="sortSelect" name="sortSelect">
+            <option value="">Default</option>
+            <option value="code_asc">Course Code (A → Z)</option>
+            <option value="code_desc">Course Code (Z → A)</option>
+            <option value="date_new">Newest First</option>
+            <option value="date_old">Oldest First</option>
+            <option value="members_asc">Fewest Members</option>
+            <option value="members_desc">Most Members</option>
+          </select>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="input-group">
+          <input class="btn" type="submit" value="Find Study Groups" />
+        </div>
+      </form>
+      
+      <article id="NotFound">
+        <p><strong>Can't find the right group? Why not create one?</strong></p>
+        <a href="#createForm">
+          <button id="create-btn" class="btn">Create a New Group</button>
+        </a>
+      </article>
+      <hr />
+
+    
+  <section class="results"></section>
+
+
+        <!--Pagination Section-->
+        <div class="pagination_section">
+          <a><<</a>
+          <a>1</a>
+          <a>2</a>
+          <a>3</a>
+          <a>4</a>
+          <a>5</a>
+          <a>>></a>
+        </div>
+      </section>
+<br/>
+      <!-- Create New Group Form -->
+      <form id="newGroupForm">
+        <h2>Create a New Study Group</h2>
+        <!-- Course Code -->
+        <div class="input-group">
+          <label for="newCourseCode">Course Code</label>
+          <input
+            type="text"
+            id="newCourseCode"
+            name="newCourseCode"
+            placeholder="Enter Course Code (e.g., ITSE305 or PHYCS101)"
+            pattern="[A-Za-z]{4,5}\d{3}"
+            title="4-5 letters followed by 3 digits"
+            required
+            oninput="this.value = this.value.toUpperCase()"
+            maxlength="8"
+          />
+        </div>
+
+        <!-- Group Name -->
+        <div class="input-group">
+          <label for="groupName">Group Name</label>
+          <input
+            type="text"
+            id="groupName"
+            name="groupName"
+            placeholder="Enter Group Name"
+            required
+            maxlength="50"
+          />
+        </div>
+
+        <!-- Group Description -->
+        <div class="input-group">
+          <label for="groupDescription">Group Description (Optional)</label>
+          <textarea
+            id="groupDescription"
+            name="groupDescription"
+            rows="4"
+            placeholder="Enter a brief description of the group"
+          ></textarea>
+        </div>
+
+        <!-- College -->
+        <div class="input-group">
+          <label for="newCollege">College</label>
+          <select id="newCollege" name="newCollege" required>
+            <option value="">Select College</option>
+            <option value="information-technology">
+              College of Information Technology
+            </option>
+            <option value="arts">College of Arts</option>
+            <option value="law">College of Law</option>
+            <option value="engineering">College of Engineering</option>
+            <option value="physical-education">
+              College of Physical Education
+            </option>
+            <option value="health-sport-sciences">
+              College of Health and Sport Sciences
+            </option>
+            <option value="languages-institute">Languages Institute</option>
+            <option value="applied-studies">College of Applied Studies</option>
+            <option value="science">College of Science</option>
+            <option value="business-administration">
+              College of Business Administration
+            </option>
+          </select>
+        </div>
+
+        <div class="grid">
+          <!--Members-->
+          <div class="input-group">
+            <label for="maxMembers">Maximum Members</label>
+            <input
+              type="number"
+              id="maxMembers"
+              name="maxMembers"
+              min="2"
+              max="50"
+              value="5"
+              required
+            />
+            <small>Choose between 2-50 members</small>
+          </div>
+
+          <!--Creation Date-->
+          <div class="input-group">
+            <label for="creationDate">Creation Date</label>
+            <input
+              type="datetime-local"
+              id="creationDate"
+              name="creationDate"
+              readonly
+            />
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn">Create Study Group</button>
+          <button type="button" class="btn btn-secondary">Cancel</button>
+        </div>
+      </form>
+    </main>
+
+<!-- Confirmation Modal -->
+<dialog id="cancelConfirmationModal">
+  <article>
+    <h3>Confirm Cancellation</h3>
+    <p>Are you sure you want to cancel creating this group? Any changes you’ve made will be lost.</p>
+    <footer>
+      <button id="confirmCancel" class="btn btn-danger">Yes, Cancel</button>
+      <button id="denyCancel" class="btn btn-secondary">No, Continue Editing</button>
+    </footer>
+  </article>
+</dialog>
+
+<!-- No Results Modal -->
+<dialog id="noResultsDialog">
+  <article>
+    <h3>Oops</h3>
+    <p>No study groups found matching your criteria.</p>
+    <p>Try adjusting your filters or create a new group.</p>
+    <footer>
+        <button id="create-btnI" class="btn">Create a New Group</button>
+      <button id="closeNoResults" class="btn btn-secondary">Close</button>
+    </footer>
+  </article>
+</dialog>
+
+<!-- Action Confirmation Dialog -->
+<dialog id="actionDialog" aria-labelledby="actionDialogTitle">
+  <article>
+    <h3 id="actionDialogTitle">Confirm Action</h3>
+    <p id="actionDialogMessage">Are you sure you want to perform this action?</p>
+    <footer>
+      <button id="actionDialogConfirm" class="btn">Confirm</button>
+      <button id="actionDialogCancel" class="btn btn-secondary">Cancel</button>
+    </footer>
+  </article>
+</dialog>
+
+<!-- Edit Group Dialog -->
+<dialog id="editDialog" aria-labelledby="editDialogTitle">
+  <article>
+    <h3 id="editDialogTitle">Edit Study Group</h3>
+    <form id="editGroupForm">
+      <div class="input-group">
+        <label for="editCourseCode">Course Code</label>
+        <input type="text" id="editCourseCode" required>
+      </div>
+      <div class="input-group">
+        <label for="editGroupName">Group Name</label>
+        <input type="text" id="editGroupName" required>
+      </div>
+      <div class="input-group">
+        <label for="editDescription">Description</label>
+        <textarea id="editDescription" rows="4"></textarea>
+      </div>
+      <div class="input-group">
+        <label for="editCollege">College</label>
+        <select id="editCollege" required>
+          <option value="">Select College</option>
+            <option value="information-technology">
+              College of Information Technology
+            </option>
+            <option value="arts">College of Arts</option>
+            <option value="law">College of Law</option>
+            <option value="engineering">College of Engineering</option>
+            <option value="physical-education">
+              College of Physical Education
+            </option>
+            <option value="health-sport-sciences">
+              College of Health and Sport Sciences
+            </option>
+            <option value="languages-institute">Languages Institute</option>
+            <option value="applied-studies">College of Applied Studies</option>
+            <option value="science">College of Science</option>
+            <option value="business-administration">
+              College of Business Administration
+            </option>
+        </select>
+      </div>
+      <footer>
+        <button type="submit" class="btn">Save Changes</button>
+        <button type="button" id="editDialogCancel" class="btn btn-secondary">Cancel</button>
+      </footer>
+    </form>
+  </article>
+</dialog>
+
+<!-- Success Toast Notification -->
+<div id="toast" class="toast-notification" aria-live="polite"></div>
+
+
+    <!-- Footer code -->
+    <hr />
+    <footer>
+      <main class="container">
+        <h5>University Official Accounts</h5>
+        <a href="https://www.instagram.com/uobedubh/?hl=ar">
+          <img src="../Pictures/instanew.png" alt="Instagram" width="30px" height="30px" />
+        </a>
+        <a href="https://www.facebook.com/MyUOB/">
+          <img src="../Pictures/facebook-new.png" alt="Facebook" width="30px" height="30px" />
+        </a>
+        <a href="https://www.uob.edu.bh/">
+          <img src="../Pictures/webnew.png" alt="Website" width="30px" height="30px" />
+        </a>
+        <h5>&copy; 2025 Campus Hub</h5>
+      </main>
+    </footer>
+  </body>
+</html>
