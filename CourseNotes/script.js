@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const API_URL = "https://jsonplaceholder.typicode.com/posts";
+    const API_URL = "https://b244ac72-2afa-49d8-b0f8-d1fdb98b830e-00-37njybe0trgwi.pike.replit.dev/Notes.php";
     const grid = document.querySelector(".grid");
     const searchInput = document.querySelector("input[type='text']");
     const sortSelect = document.getElementById("sort");
@@ -33,10 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = await res.json();
 
             notes = data.map(item => ({
-                title: `Course ${item.id} - ${item.title}`,
-                author: ["Malak", "Ameena", "Anfal", "Duha", "Maryam"][Math.floor(Math.random() * 5)],
-                summary: item.body,
-                date: new Date(Date.now() - Math.floor(Math.random() * 100000000000)).toISOString().split("T")[0]
+    title: item.title,
+    author: item.author,
+    summary: item.summary,
+    date: item.date
+
+
             }));
 
             renderNotes(notes);
@@ -96,32 +98,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ========== Form Handling ==========
     const addNote = (e) => {
-        e.preventDefault();
-        const course = document.getElementById("course").value.trim();
-        const title = document.getElementById("title").value.trim();
-        const author = document.getElementById("author").value.trim();
-        const date = document.getElementById("date").value.trim();
-        const content = document.getElementById("content").value.trim();
+    e.preventDefault();
+    const course = document.getElementById("course").value.trim();
+    const title = document.getElementById("title").value.trim();
+    const author = document.getElementById("author").value.trim();
+    const date = document.getElementById("date").value.trim();
+    const content = document.getElementById("content").value.trim();
 
-        errorDisplay.innerHTML = "";
+    errorDisplay.innerHTML = "";
 
-        if (!course || !title || !author || !date || !content) {
-            errorDisplay.textContent = "Please fill in all fields.";
-            return;
-        }
+    if (!course || !title || !author || !date || !content) {
+        errorDisplay.textContent = "Please fill in all fields.";
+        return;
+    }
 
-        const newNote = {
-            title: `${course} - ${title}`,
-            author,
-            summary: content,
-            date
-        };
-
-        notes.push(newNote);
-        renderNotes(notes);
-        e.target.reset();
-        errorDisplay.textContent = "Note uploaded successfully! Thank You!";
+    const newNote = {
+        title: `${course} - ${title}`,
+        author,
+        summary: content,
+        date
     };
+
+    // Send POST request to backend
+    fetch("https://b244ac72-2afa-49d8-b0f8-d1fdb98b830e-00-37njybe0trgwi.pike.replit.dev/Notes.php", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newNote)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Note added successfully:", data);
+        errorDisplay.textContent = "Note uploaded successfully! Thank You!";
+        fetchNotes(); // Refresh the list after adding a new note
+    })
+    .catch(err => {
+        console.error("Failed to add note:", err);
+        errorDisplay.textContent = "Failed to add note.";
+    });
+};
+
 
     // ========== Event Listeners ==========
     form.addEventListener("submit", addNote);
