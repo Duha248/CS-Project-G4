@@ -8,6 +8,7 @@ const modal = document.getElementById('cancelConfirmationModal');
 const confirmCancel = document.getElementById('confirmCancel');
 const denyCancel = document.getElementById('denyCancel');
 const resultsSection = document.querySelector('.results');
+
 const searchForm = document.getElementById('searchForm');
 const paginationContainer = document.querySelector('.pagination_section');
 const toast = document.getElementById('toast');
@@ -107,7 +108,7 @@ function renderGroupHTML(group) {
           <p><strong>Description:</strong> ${group.description || 'No description'}</p>
          <p><strong>Created:</strong> ${formatDate(group.created)}</p>
           <div class="controllers">
-            <button class="btn">Edit</button>
+            <button class="btn edit-btn">Edit</button>
             <button class="btn btn-danger delete-btn">Delete</button>
             <button class="btn btn-secondary back-btn">Back</button>
 
@@ -161,9 +162,7 @@ function formatDate(dateString) {
   const options = { 
     year: 'numeric', 
     month: 'short', 
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
+    day: 'numeric'
   };
   return new Date(dateString).toLocaleDateString(undefined, options);
 }
@@ -224,7 +223,8 @@ async function handleEditSubmit(e) {
     if (!res.ok) throw new Error('Update failed');
     showToast('Group updated!');
     editDialog.close();
-    loadStudyGroups();
+     loadStudyGroups();
+
   } catch (err) {
     showToast(err.message, true);
   }
@@ -378,5 +378,9 @@ function closeNoResultsDialog() {
   noResultsDialog.close();
   courseCodeInput.value = '';
   collegeSelect.selectedIndex = 0;
-  loadStudyGroups();
+  loadStudyGroups();  
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
