@@ -21,11 +21,28 @@ try {
     }
 
     // Handling GET requests only
-    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        $stmt = $pdo->query("SELECT id, title, author, summary, date FROM course_notes ORDER BY id DESC");
-        $course_notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($course_notes);
-    } 
+   if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    
+    // Pagination parameters from URL
+    $page = isset($_GET['_page']) ? (int) $_GET['_page'] : 1;
+    $limit = isset($_GET['_limit']) ? (int) $_GET['_limit'] : 10;
+    $offset = ($page - 1) * $limit;
+
+    // Get total number of course notes for pagination
+    $totalStmt = $pdo->query("SELECT COUNT(*) FROM course_notes");
+    $totalCount = $totalStmt->fetchColumn();
+    header("X-Total-Count: $totalCount");
+
+    // Get paginated course notes
+    $stmt = $pdo->prepare("SELECT id, title, author, summary, date FROM course_notes ORDER BY id DESC LIMIT :limit OFFSET :offset");
+    $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $stmt->execute();
+    $course_notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    echo json_encode($course_notes);
+}
+
 
     elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $data = json_decode(file_get_contents("php://input"), true);
