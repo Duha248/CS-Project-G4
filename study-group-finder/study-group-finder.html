@@ -54,25 +54,18 @@
         <div id="college-option" class="input-group hidden">
           <label for="college">Filter by College</label>
           <select id="college" name="college" >
-            <option value="">Select College</option>
-            <option value="information-technology">
-              College of Information Technology
-            </option>
-            <option value="arts">College of Arts</option>
-            <option value="law">College of Law</option>
-            <option value="engineering">College of Engineering</option>
-            <option value="physical-education">
-              College of Physical Education
-            </option>
-            <option value="health-sport-sciences">
-              College of Health and Sport Sciences
-            </option>
-            <option value="languages-institute">Languages Institute</option>
-            <option value="applied-studies">College of Applied Studies</option>
-            <option value="science">College of Science</option>
-            <option value="business-administration">
-              College of Business Administration
-            </option>
+             <option value="" selected>Select College</option>
+  <option value="College of Information Technology">College of Information Technology</option>
+<option value="College of Arts">College of Arts</option>
+<option value="College of Law">College of Law</option>
+<option value="College of Engineering">College of Engineering</option>
+<option value="College of Physical Education">College of Physical Education</option>
+<option value="College of Health and Sport Sciences">College of Health and Sport Sciences</option>
+<option value="Languages Institute">Languages Institute</option>
+<option value="College of Applied Studies">College of Applied Studies</option>
+<option value="College of Science">College of Science</option>
+<option value="College of Business Administration">College of Business Administration</option>
+
           </select>
         </div>
 
@@ -85,8 +78,6 @@
             <option value="code_desc">Course Code (Z → A)</option>
             <option value="date_new">Newest First</option>
             <option value="date_old">Oldest First</option>
-            <option value="members_asc">Fewest Members</option>
-            <option value="members_desc">Most Members</option>
           </select>
         </div>
 
@@ -189,34 +180,7 @@
           </select>
         </div>
 
-        <div class="grid">
-          <!--Members-->
-          <div class="input-group">
-            <label for="maxMembers">Maximum Members</label>
-            <input
-              type="number"
-              id="maxMembers"
-              name="maxMembers"
-              min="2"
-              max="50"
-              value="5"
-              required
-            />
-            <small>Choose between 2-50 members</small>
-          </div>
-
-          <!--Creation Date-->
-          <div class="input-group">
-            <label for="creationDate">Creation Date</label>
-            <input
-              type="datetime-local"
-              id="creationDate"
-              name="creationDate"
-              readonly
-            />
-          </div>
-        </div>
-
+       
         <div class="form-actions">
           <button type="submit" class="btn">Create Study Group</button>
           <button type="button" class="btn btn-secondary">Cancel</button>
@@ -281,26 +245,18 @@
       <div class="input-group">
         <label for="editCollege">College</label>
         <select id="editCollege" required>
-          <option value="">Select College</option>
-            <option value="information-technology">
-              College of Information Technology
-            </option>
-            <option value="arts">College of Arts</option>
-            <option value="law">College of Law</option>
-            <option value="engineering">College of Engineering</option>
-            <option value="physical-education">
-              College of Physical Education
-            </option>
-            <option value="health-sport-sciences">
-              College of Health and Sport Sciences
-            </option>
-            <option value="languages-institute">Languages Institute</option>
-            <option value="applied-studies">College of Applied Studies</option>
-            <option value="science">College of Science</option>
-            <option value="business-administration">
-              College of Business Administration
-            </option>
-        </select>
+  <option value="" disabled selected>Select College</option>
+  <option>College of Information Technology</option>
+  <option>College of Arts</option>
+  <option>College of Law</option>
+  <option>College of Engineering</option>
+  <option>College of Physical Education</option>
+  <option>College of Health and Sport Sciences</option>
+  <option>Languages Institute</option>
+  <option>College of Applied Studies</option>
+  <option>College of Science</option>
+  <option>College of Business Administration</option>
+</select>
       </div>
       <footer>
         <button type="submit" class="btn">Save Changes</button>
