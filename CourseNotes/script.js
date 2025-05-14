@@ -74,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
+
     // ========== Search, Sort, Pagination ==========
     const searchNotes = () => {
         const query = searchInput.value.toLowerCase();
