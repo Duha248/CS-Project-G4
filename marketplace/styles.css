@@ -210,6 +210,49 @@ h3 {
     transform: scale(1.05);
 }
 
+.comment-section {
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  #comment-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+  }
+  
+  #comment-input {
+    padding: 10px;
+    border: 1px solid #BFAB8C;
+    border-radius: 5px;
+    min-height: 80px;
+    resize: vertical;
+  }
+  
+  #comment-form button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #C8AD7E;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #comment-form button:hover {
+    background-color: #BFAB8C;
+  }
+  
+  .comment {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f6f2ea;
+    border-radius: 5px;
+  }  
+
 .icon-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
