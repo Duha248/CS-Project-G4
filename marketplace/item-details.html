@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Item Details</title>
+  <link rel="stylesheet" href="stylee.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Item Details</h1>
+    <div id="item-details" class="item-card animated-card"></div>
+    <a href="index.html" class="animated-button">Back</a>
+  </div>
+
+  <div class="container">  
+    <section class="comment-section">
+      <h3>Comments</h3>
+      <div id="comments-container"></div>
+  
+      <form id="comment-form">
+        <textarea id="comment-input" placeholder="Write your comment..." required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+    </section>
+  </div>  
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const queryParams = new URLSearchParams(window.location.search);
+      const index = queryParams.get("index");
+      const detailsContainer = document.getElementById("item-details");
+
+      if (!index) {
+        detailsContainer.innerHTML = "<p style='color:red;'>Item not found.</p>";
+        return;
+      }
+
+      const API_URL = "https://a0f96f78-3d32-4f9d-bbf1-d608077d5ba1-00-2yzixh0ocnitb.pike.replit.dev/student-marketplace.php";
+
+      fetch(API_URL)
+        .then(response => response.json())
+        .then(data => {
+          const item = data[index];
+          if (!item) {
+            detailsContainer.innerHTML = "<p style='color:red;'>Item not found.</p>";
+            return;
+          }
+
+          detailsContainer.innerHTML = `
+            <h2>${item.title}</h2>
+            <p><strong>Description:</strong> ${item.description}</p>
+            <p><strong>Condition:</strong> ${item.condition}</p>
+            <p><strong>Price:</strong> ${item.price} BD</p>
+            <p><strong>Contact:</strong> ${item.contact}</p>
+          `;
+        })
+        .catch(() => {
+          detailsContainer.innerHTML = "<p style='color:red;'>Failed to load item details.</p>";
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const itemId = urlParams.get("id") || "default";
+
+  const commentsContainer = document.getElementById("comments-container");
+  const commentForm = document.getElementById("comment-form");
+  const commentInput = document.getElementById("comment-input");
+
+  const commentsKey = `comments_${itemId}`;
+  let comments = JSON.parse(localStorage.getItem(commentsKey)) || [];
+
+  function displayComments() {
+    commentsContainer.innerHTML = "";
+    comments.forEach(comment => {
+      const div = document.createElement("div");
+      div.className = "comment";
+      div.innerHTML = `
+        <p>${comment.text}</p>
+        <small>${comment.time}</small>
+      `;
+      commentsContainer.appendChild(div);
+    });
+  }
+
+  commentForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const text = commentInput.value.trim();
+    if (!text) return;
+
+    const comment = {
+      text,
+      time: new Date().toLocaleString()
+    };
+
+    comments.push(comment);
+    localStorage.setItem(commentsKey, JSON.stringify(comments));
+    displayComments();
+    commentInput.value = "";
+  });
+
+  displayComments();
+});
+
+  </script>
+</body>
+</html>
