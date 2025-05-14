@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     async function fetchactivities () {
         try {
             showLoading();
-            const act = await fetch('https://68073717e81df7060eb936b9.mockapi.io/acivities');
+            const act = await fetch('https://583092bf-47a6-4ec6-9c68-10f098e6b456-00-68xeoyj963l9.sisko.replit.dev/main.php');
             if (!act.ok) throw new Error("Failed to fetch data.");
             allactivities = await act.json();
             searchActivities();
@@ -31,6 +31,117 @@ document.addEventListener("DOMContentLoaded", () => {
             showError(err.message);
         }
     };
+
+    // Delete Activity
+    clubContainer.addEventListener("click", async (e) => {
+        if (e.target.classList.contains("delete-btn")) {
+            const activityId = e.target.getAttribute("data-id");
+            if (!confirm("Are you sure you want to delete this activity?")) return;
+
+            try {
+                const res = await fetch(`https://583092bf-47a6-4ec6-9c68-10f098e6b456-00-68xeoyj963l9.sisko.replit.dev/main.php?id=${activityId}`, {
+                    method: "DELETE"
+                });
+
+                if (!res.ok) throw new Error("Failed to delete activity.");
+                allactivities = allactivities.filter(a => a.id != activityId);
+                alert("Activity deleted successfully.")
+                currentPage = 1;
+                searchActivities();
+            } catch (err) {
+                alert("Error: " + err.message);
+            }
+        }
+    });
+
+    //Posting comment button:
+    clubContainer.addEventListener("click", async (e) => {
+        if (e.target.classList.contains("post-comment-btn")) {
+            const activityId = e.target.getAttribute("data-id");
+            const input = e.target.closest(".comments-section").querySelector("textarea");
+            const commentText = input.value.trim();
+            if (!commentText) {
+                alert("Comment cannot be empty.");
+                return;
+            }
+            try {
+                const res = await fetch('https://583092bf-47a6-4ec6-9c68-10f098e6b456-00-68xeoyj963l9.sisko.replit.dev/main.php', {
+                    method: "PATCH",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ id: activityId, comment: commentText })
+                });
+    
+                if (!res.ok) throw new Error("Failed to add comment.");
+    
+                input.value = ""; // Clear input
+                alert("Comment added.");
+                const commentList = input.closest(".comments-section").querySelector(".existing-comments");
+                const newCommentEl = document.createElement("p");
+                newCommentEl.style.marginLeft = "1em";
+                newCommentEl.textContent = `• ${commentText}`;
+                commentList.appendChild(newCommentEl);
+            } catch (err) {
+                alert("Error: " + err.message);
+            }
+        }
+    });
+
+
+    //Handling the edit modal of the activities:
+    const editModal = document.getElementById("editModal");
+    const editForm = document.getElementById("editAct");
+    const cancelEditBtn = document.getElementById("cancelEdit");
+
+    //Openning the dialog:
+    clubContainer.addEventListener("click", (e) => {
+        if (e.target.classList.contains("edit-btn")) {
+            editingId = e.target.getAttribute("data-id");
+            const activity = allactivities.find(a => a.id == editingId);
+
+            document.getElementById("editClub").value = activity.Club;
+            document.getElementById("editActivity").value = activity.Activity;
+            document.getElementById("editDate").value = activity.Date;
+            document.getElementById("editLocation").value = activity.Location;
+            document.getElementById("editDescription").value = activity.Description;
+
+            editModal.showModal();
+        }
+    });
+
+    // Submit the edit button:
+    editForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const updated = {
+            id: editingId,
+            Club: document.getElementById("editClub").value.trim(),
+            Activity: document.getElementById("editActivity").value.trim(),
+            Date: document.getElementById("editDate").value.trim(),
+            Location: document.getElementById("editLocation").value.trim(),
+            Description: document.getElementById("editDescription").value.trim()
+        };
+
+        try {
+            const res = await fetch("https://583092bf-47a6-4ec6-9c68-10f098e6b456-00-68xeoyj963l9.sisko.replit.dev/main.php", {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(updated)
+            });
+
+            if (!res.ok) throw new Error("Failed to update activity.");
+            alert("Activity updated.");
+            editModal.close();
+            await fetchactivities();
+        } catch (err) {
+            alert("Error: " + err.message);
+        }
+    });
+
+    //The cacel button for the edit modal:
+    cancelEditBtn.addEventListener("click", () => {
+        editModal.close();
+    });
+
 
     // The search function:
     function searchActivities() {
@@ -64,6 +175,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         page.forEach(a => {
+            const parsedComments = (() => {
+                try {
+                    const raw = typeof a.comments === "string" ? JSON.parse(a.comments) : a.comments;
+                    return Array.isArray(raw) ? raw : [];
+                } catch (e) {
+                    return [];
+                }
+            })();
+        
+            const commentListHTML = parsedComments.map(c => {
+                return `<p style="margin-left:1em;">• ${c.data || c.text || "Invalid comment"}</p>`;
+            }).join('');
+        
             const detail = document.createElement('details');
             detail.innerHTML = `
                 <summary>
@@ -73,10 +197,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 </summary>
                 <p><strong>Location:</strong> ${a.Location}</p>
                 <p><strong>Description:</strong> ${a.Description}</p>
+                <hr>
+                <div class="comments-section" data-activity-id="${a.id}">
+                    <h5>Comments</h5>
+                    <div class="existing-comments">
+                        ${commentListHTML}
+                    </div>
+                    <textarea placeholder="Leave a comment..." rows="3"></textarea><br>
+                    <button class="post-comment-btn" data-id="${a.id}">Post Comment</button>
+                </div>
+                <hr>
+                <button class="edit-btn" data-id="${a.id}">Edit</button>
+                <button class="delete-btn" data-id="${a.id}" style="color: red;">Delete</button>
             `;
             clubContainer.appendChild(detail);
         });
-    
+        
+
         renderPagination(data.length);
     }
 
@@ -109,17 +246,19 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     //Form validation: 
-        const form = document.querySelector("form");
-        const titleInput = document.getElementById("title");
-        const dateInput = document.getElementById("date");
-        const locationInput = document.getElementById("location");
-        const descriptionInput = document.getElementById("description");
+        const form = document.querySelector("#addActForm");
         const errorDisplay = document.getElementById("form-error");
     
-        form.addEventListener("submit", (e) => {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            const clubInput = document.querySelector("input[name='club']:checked");
+
+            const titleInput = document.getElementById("title");
+            const dateInput = document.getElementById("date");
+            const locationInput = document.getElementById("location");
+            const descriptionInput = document.getElementById("description");
+
+            const club = document.querySelector("input[name='club']:checked")?.value || "";
             const title = titleInput.value.trim();
             const date = dateInput.value.trim();
             const location = locationInput.value.trim();
@@ -127,49 +266,35 @@ document.addEventListener("DOMContentLoaded", () => {
             errorDisplay.textContent = "" ; 
 
             // Check if all values are filled
-            if (!clubInput) {
-                errorDisplay.textContent = "Please select a club.";
+            if (!club || !title || !date || !location || !description) {
+                errorDisplay.textContent = "All fields are required.";
                 return;
             }
-            if (!title) {
-                errorDisplay.textContent = "Please enter a title.";
-                //alert ("Please enter the activity title.");
-                return;
-            }
-            if (!date) {
-                errorDisplay.textContent = "Please select a date.";
-                //alert ("Please enter the date.");
-                return;
-            }
-            const dateObj = new Date(date);
-            if (isNaN(dateObj.getTime())) {
-                errorDisplay = "Please enter a valid date.";
-                return;
-            }
-            if (!location) {
-                errorDisplay.textContent = "Please enter a location.";
-                //alert ("Please enter the location.");
-                return;
-            }
-            if (!description) {
-                errorDisplay.textContent = "Please enter a desc.";
-                //alert("Please enter the description.");
-                return;
-            }
-/*
-            // Adding activity to the API
-            const newAct = {
-                club , title , date ,
-                location , description , 
-                id: allactivities.length + 1
-            }
-            filteredActivities.push(newAct);
-            searchActivities();
-*/          
-          
 
-            // Success action - shows alert and resets form
-            alert("Activity added successfully!");
+            const newAct= { Club: club, Activity: title, Date: date, Location: location, Description: description};
+
+            try{
+                const res = await fetch("https://583092bf-47a6-4ec6-9c68-10f098e6b456-00-68xeoyj963l9.sisko.replit.dev/addAct.php", {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(newAct)
+                    });
+                    if (!res.ok) {
+                        const errorData = await res.json(); // Read the error response
+                        throw new Error(`Failed to add Activity: ${errorData.error || res.statusText}`);
+                    }
+                    const addedAct = await res.json();
+                    await fetchactivities();
+                    //allactivities.push(addedAct);
+                    alert("Activities added successfully!");
+                    currentPage = 1;
+                    searchActivities();
+                    form.reset();
+                    displayActivities(filteredActivities);
+                }
+            catch(err) {
+                errorDisplay.textContent = "Error adding Activity: " + err.message;
+            }
         });
 
         searchInput.addEventListener("input", () => {
@@ -184,4 +309,3 @@ document.addEventListener("DOMContentLoaded", () => {
     
     fetchactivities(); // initial fetch
 });
-

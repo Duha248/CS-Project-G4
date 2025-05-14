@@ -87,92 +87,15 @@
 
         </section>
 
-        <!-- Showing how the results would show: -->
+        <!-- Result section showing activities: -->
         <section>
             <div class = "results" >
-                <h3>Results:</h3>
-                <details>
-                    <summary>
-                        <P><strong>Club: Debate</strong></P>
-                        <P> <strong>Activity: Competition Training</strong> </P>
-                        <p><strong>Date: </strong>2025-02-20</p>
-                    </summary>
-                    <p><strong>Location: </strong>Room 101</p>
-                    <p><strong>Description: </strong>Competition training and preperations for the upcoming debate competition.</p>
-                </details><br>
-                <details>
-                    <summary>
-                        <P><strong>Club: Sports</strong></P>
-                        <P> <strong>Activity: Basketball Match</strong> </P>
-                        <p><strong>Date: </strong>2025-09-28</p>
-                    </summary>
-                    <p><strong>Location: </strong>University feild</p>
-                    <p><strong>Description: </strong>Join us for a friendly basketball match against the opposing team.</p>
-                </details><br>
-
-                <details>
-                    <summary>
-                        <P><strong>Club: Chess</strong></P>
-                        <P> <strong>Activity: Introductory chess</strong> </P>
-                    <p><strong>Date: </strong>2025-10-15</p>
-                </summary>
-                    <p><strong>Location: </strong>Room 089</p>
-                    <p><strong>Description: </strong>Get to know our chess mates and understand chess rules basics.</p>
-                </details><br>
-
-                <details>
-                    <summary>
-                        <P><strong>Club: Sports</strong></P>
-                        <P> <strong>Activity: Football formation</strong> </P>
-                        <p><strong>Date: </strong>2025-09-13</p>
-                     </summary>
-                    <p><strong>Location: </strong>University feild</p>
-                    <p><strong>Description: </strong>Choosing team players and their roles.</p>
-                </details><br>
-
-                <details>
-                    <summary>
-                        <P><strong>Club: Music</strong></P>
-                        <P> <strong>Activity: Piano and cello training</strong> </P>
-                        <p><strong>Date: </strong>2025-10-24</p>
-                    </summary>
-                    <p><strong>Location: </strong>Room 122</p>
-                    <p><strong>Description: </strong>piano musicians meet cello musicians and train.</p>
-                </details><br>
-
-                <details>
-                    <summary>
-                        <P><strong>Club: Music</strong></P>
-                        <P> <strong>Activity: Piano lesson</strong> </P>
-                        <p><strong>Date: </strong>2025-09-20</p>
-                    </summary>
-                        <p><strong>Location: </strong>Room 122</p>
-                    <p><strong>Description: </strong>Reading piano music sheets and playing them.</p>
-                </details><br>
-
-                <details>
-                    <summary>
-                        <P><strong>Club: Debate</strong></P>
-                        <P> <strong>Activity: Uniform vs Casual</strong> </P>
-                        <p><strong>Date: </strong>2025-11-01</p>
-                    </summary>
-                    <p><strong>Location: </strong>Room 109</p>
-                    <p><strong>Description: </strong>debate team splits to two and debate about uniform versus casual clothes.</p>
-                </details><br>
-                <details>
-                    <summary>
-                        <P><strong>Club: Chess</strong></P>
-                        <P> <strong>Activity: Chess tournament</strong> </P>
-                        <p><strong>Date: </strong>2025-10-20</p>
-                    </summary>
-                    <p><strong>Location: </strong>Room 300</p>
-                    <p><strong>Description: </strong>A simple chess tornement between teams.</p>
-                </details><br>
 
             </div>
 
             <!-- The pagination buttons: -->
             <div class="paginationing">
+
                 <a href=""><<</a>
                 <a href="">2</a>
                 <a href="">3</a>
@@ -184,33 +107,47 @@
         </section>
         <hr>
         
+        <!-- The Edit button dailog for editing contents.-->
+        <dialog id="editModal">
+            <form method="dialog" id="editAct">
+              <h2>Edit Activity</h2>
+              <input type="text" id="editClub" placeholder="Club" required />
+              <input type="text" id="editActivity" placeholder="Activity Title" required />
+              <input type="date" id="editDate" required />
+              <input type="text" id="editLocation" placeholder="Location" required />
+              <textarea id="editDescription" placeholder="Description" required></textarea>
+              <button id = "ebitbtn" type="submit">Apply Changes</button>
+              <button type="button" id="cancelEdit">Cancel</button>
+            </form>
+        </dialog>
+
         <!-- Adding an activity form: -->
         <section>
             <h3>Add Activity</h3>
-            <form>
+            <form id = "addActForm">
                 <label for = "club" ><Strong>CLUB:</Strong> 
                     <br><br>
-                    <input type="radio" id="music" name="club" >Music Club
-                    <input type="radio" id="debate" name="club">Debate Club
-                    <input type="radio" id="chess" name="club">Chess Club
-                    <input type="radio" id="sports" name="club">Sports Club
+                    <input type="radio" id="music" name="club" value="Music Club" >Music Club
+                    <input type="radio" id="debate" name="club" value="Debate Club" >Debate Club
+                    <input type="radio" id="chess" name="club" value="Chess Club" >Chess Club
+                    <input type="radio" id="sports" name="club" value="Sports Club" >Sports Club
                     <br><br>
                 </label>
 
                 <label for="title">Activity Title:</label>
-                <input type="text" id="title" >
+                <input type="text" id="title" name="title">
                 <br><br>
 
                 <label for="date">Date:</label>
-                <input type="date" id="date" >
+                <input type="date" id="date" name="date">
                 <br><br>
 
                 <label for="location">Location:</label>
-                <input type="text" id="location" >
+                <input type="text" id="location" name="location">
                 <br><br>
 
                 <label for="description">Description:</label>
-                <textarea id="description" ></textarea>
+                <textarea id="description" name="description"></textarea>
                 <br><br>
 
                 <input type="submit" id="submit-button" value="Add" >

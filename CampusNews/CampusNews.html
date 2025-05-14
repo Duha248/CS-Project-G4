@@ -12,18 +12,20 @@
         <header>
             <main class="container">            
             <h1>
-                <a href="index.html"> 
+                <a href="../index.html"> 
                     <img src="log.png" alt="Image" height="150px" width="150px"> 
                 </a>
                 Campus Hub</h1>
-                <nav>
-                    <a href="index.html">Main Page</a> |
-                    <a href="">Group Finder</a> |
-                    <a href="">Course Reviews</a> |
-                    <a href="">Course Notes</a> |
-                    <a href="">Campus News</a> |
-                    <a href="">Club Activities</a> |
-                    <a href="">Student Marketplace</a> 
+                
+                <!-- Creating the main navigation menu with appropriate links to other pages -->
+                <nav> 
+                    <a href="../index.html">Main Page</a> |
+                    <a href="../study-group-finder/study-group-finder.html">Group Finder</a> |
+                    <a href="../CourseReviews/CourseReviews.html">Course Reviews</a> |
+                    <a href="../CourseNotes/courseNotes.html">Course Notes</a> |
+                    <a href="../CampusNews/CampusNews.html">Campus News</a> |
+                    <a href="../club-activities/ClubActivities.html">Club Activities</a> |
+                    <a href="../marketplace/StudentMarketplace.html">Student Marketplace</a> 
                 </nav>
             </main>
         </header>
@@ -32,109 +34,67 @@
         <main class="container">
             <h1>Campus News</h1>
             <h4> Welcome to Campus News page where you can find all the latest news and updates from your campus.</h4>
+
+            <!-- Creating a section for searching and sorting news articles -->
             <section class="search-filter">
-                <input type="text" placeholder="Search for news by collage name, ex. College of Information Technology." />
+                <input type="text" placeholder="Search for news by college name, ex. College of Information Technology." />
                 <select class="sorting">
-                    <option value= "1">Newest to oldest</option>
-                    <option value= "2">Oldest to newest</option>
+                    <option value="1">Newest to oldest</option>
+                    <option value="2">Oldest to newest</option>
                 </select>
                 <button type="submit"><strong> Search</strong></button> 
-
-                
             </section>
-
+    
+            <!-- Creating news class to add news items while using JavaScript -->
             <section>
                 <div class="news">
-                    <h2>Campus News</h2>
-
-                    <details>
-                        <summary>
-                            <p><strong>News Title:</strong> UOB Introduces New Cybersecurity Program</p>
-                            <p><strong>College:</strong> College of Information Technology</p>
-                            <p><strong>Date:</strong> 05/03/2024</p>
-                        </summary>
-                        <p><strong>Author:</strong> College of Information Technology</p>
-                        <p><strong>News Description:</strong> University of Bahrain has launched a new Cybersecurity program to equip students with essential skills in ethical hacking, 
-                            data protection, and network security. The program includes hands-on training and collaboration with leading tech firms to enhance cybersecurity awareness in Bahrain.
-                        </p>
-                    </details>
-                    <br>
-
-                    <details>
-                        <summary>
-                            <p><strong>News Title:</strong> University of Bahrain Launches New AI Research Center</p>
-                            <p><strong>College:</strong> College of Information Technology</p>
-                            <p><strong>Date:</strong> 11/12/2024</p>
-                        </summary>
-                        <p><strong>Author:</strong> Dr. Ahmed Al-Khalifa</p>
-                        <p><strong>News Description:</strong> The University of Bahrain has opened its first AI Research Center to promote innovation in artificial intelligence. 
-                            The center will support research in education, healthcare, and business, providing students and faculty with advanced resources. 
-                            The launch event featured university leaders and industry experts discussing AI's role in Bahrain's digital future. 
-                        </p>
-                    </details>
-                    <br>
-
-                    <details>
-                        <summary>
-                            <p><strong>News Title:</strong> UOB Hosts Legal Awareness Seminar on Cyber Law</p>
-                            <p><strong>College:</strong> College of Law</p>
-                            <p><strong>Date:</strong> 27/03/2023</p>
-                        </summary>
-                        <p><strong>Author:</strong> College of Law</p>
-                        <p><strong>News Description:</strong> The University of Bahrain organized a seminar on Cyber Law, discussing digital rights, online privacy, and cybercrime regulations. 
-                            Legal experts and faculty members guided students on the latest developments in Bahrain's legal framework for cybersecurity and digital transactions.
-                        </p>
-                    </details>
                 </div>
             </section>
-
+    
+            <!-- Creating pagination class that will dynamically generate the pagination buttons when using JavaScript -->
             <div class="pagination">
-                <a href="#">&laquo; Prev</a>
-                <a href="#">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">Next &raquo;</a>
             </div>
 
+            <!-- Creating form to add news -->
             <h4>Add New News:</h4>
-            <form id="addNews">
+            <form id="addNews" method="POST" action="news_endpoint.php">
                 <label for="title">News Title:</label>
                 <input type="text" id="title" placeholder="News Title" >
                 <br>
                 <label for="college">College:</label>
-                <input type="text" id="college" placeholder="College" >
+                <input type="text" id="college" placeholder="College">
                 <br>
                 <label for="year">Year:</label>
-                <input type="text" id="year" placeholder="Year of writing this news" >
+                <input type="text" id="year" placeholder="Year of writing this news">
                 <br>
                 <label for="author">Author:</label>
-                <input type="text" id="author" placeholder="Author" >
+                <input type="text" id="author" placeholder="Author">
                 <br>
                 <label for="description">News Description:</label>
-                <textarea id="description" placeholder="News Description" ></textarea>
+                <textarea id="description" placeholder="News Description"></textarea>
                 <br>
                 <input type="submit" value="Add">
                 <br>
-                <p id="form-error" style="color:red;">Error msg</p>
+                <p id="form-error" style="color:red;"></p>
             </form>
-            
         </main>
-
+    
         <hr>
+        <!-- Creating a footer section -->
         <footer>
             <main class="container">
             <h5>University Official Accounts</h5>
-            <a href= "https://www.instagram.com/uobedubh/?hl=ar">
+            <a href="https://www.instagram.com/uobedubh/?hl=ar">
                 <img src="instanew.png" width="30px" height="30px">
             </a>
             <a href="https://www.facebook.com/MyUOB/">
-                <img src="facebook-new.png"width="30px" height="30px"> 
+                <img src="facebook-new.png" width="30px" height="30px"> 
             </a>
             <a href="https://www.uob.edu.bh/">
-                <img src="webnew.png"width="30px" height="30px"> 
+                <img src="webnew.png" width="30px" height="30px"> 
             </a>
             <h5>&copy; 2025 Campus Hub</h5>
-        </main>
+            </main>
         </footer>
     </body>
-</html>
+    </html>
