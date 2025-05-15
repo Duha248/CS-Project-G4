@@ -220,39 +220,7 @@ details summary {
 details p {
     margin: 5px 0;
 }
-/*Members section*/
-.members-section {
-    background-color: #f8f4ee;
-    padding: 15px;
-    border-radius: 8px;
-    margin: 1.5rem 0;
-    border-left: 4px solid #C8AD7E;
-}
 
-.member-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.member-badge {
-    background-color: white;
-    color: #5a5a5a;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    transition: all 0.2s ease;
-}
-
-.member-badge:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-}
 
 
 /* Comments Section */
@@ -396,9 +364,6 @@ footer a img:hover {
         padding: 10px;
     }
 
-    .member-list {
-        justify-content: center;
-    }
 }
 
 @media (min-width: 992px) {
