@@ -123,10 +123,8 @@ document.addEventListener("DOMContentLoaded", () => {
   
     addItemForm.addEventListener("submit", (e) => {
         e.preventDefault();
-        
-        // Validate input before sending data
         if (!validateFormInput()) return;
-      
+    
         const newItem = {
           title: document.getElementById("item-title").value,
           description: document.getElementById("item-description").value,
@@ -134,22 +132,12 @@ document.addEventListener("DOMContentLoaded", () => {
           price: parseFloat(document.getElementById("item-price").value),
           contact: document.getElementById("item-contact").value
         };
-      
-        // Send data to the server via POST request
-        fetch(API_URL + "?type=item", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(newItem)
-        })
-        .then(response => response.json())
-        .then(data => {
-          alert(data.message);  // Show success message from backend
-          fetchItems(); // Refresh the items list after adding
-        })
-        .catch(error => {
-          console.error("Error adding item:", error);
-          alert("Error adding item.");
-        });
+    
+        items.push(newItem);
+        localStorage.setItem("items", JSON.stringify(items));
+        applyFilters();
+        addItemForm.reset();
+        alert("Item added successfully.");
       });
       
   
